@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manvi Gupta — Business Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hunter:     #2D4A2A;
+    --basil:      #3A5E35;
+    --sage-deep:  #4E7A47;
+    --sage:       #6B9E62;
+    --sage-light: #A8C9A0;
+    --sage-pale:  #DCE8D8;
+    --sage-mist:  #EEF4EB;
+    --cream:      #F5F2EC;
+    --warm-white: #FAFAF7;
+    --charcoal:   #272820;
+    --muted:      #5E6259;
+    --border:     #D0D5C8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--hunter);
+    padding: 0 6%;
+    display: flex; justify-content: space-between; align-items: center;
+    height: 58px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  nav .logo-name {
+    font-family: 'DM Serif Display', serif;
+    color: white; font-size: 1.05rem; letter-spacing: 0.02em;
+  }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul a {
+    color: rgba(255,255,255,0.65); text-decoration: none;
+    font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: white; }
+  nav .logo-slot {
+    width: 36px; height: 36px; border-radius: 6px;
+    border: 1px dashed rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.3); font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--hunter);
+    padding: 90px 6% 100px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -80px; left: -80px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: rgba(107,158,98,0.1);
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -100px; right: -60px;
+    width: 440px; height: 440px; border-radius: 50%;
+    background: rgba(168,201,160,0.06);
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: white; line-height: 1.12; position: relative; z-index: 1;
+  }
+  .hero p {
+    color: var(--sage-light); font-size: 1rem; font-weight: 300;
+    margin-top: 1.1rem; max-width: 500px;
+    margin-left: auto; margin-right: auto;
+    position: relative; z-index: 1;
+  }
+  .hero-rule {
+    width: 40px; height: 2px; background: var(--sage);
+    margin: 1.6rem auto 0; position: relative; z-index: 1;
+  }
+
+  /* SHARED */
+  section { padding: 80px 6%; }
+  .max-w { max-width: 1080px; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sage-deep); margin-bottom: 0.4rem;
+  }
+  h2.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    color: var(--charcoal); margin-bottom: 2.8rem;
+  }
+
+  /* ABOUT */
+  .about-section { background: var(--cream); }
+  .about-grid {
+    display: grid; grid-template-columns: 220px 1fr;
+    gap: 64px; align-items: start;
+  }
+  .avatar-col {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 1rem;
+  }
+  .initials-circle {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: var(--basil);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: white; letter-spacing: 0.05em;
+  }
+  .profile-img {
+    width: 190px; height: 215px;
+    border-radius: 12px; object-fit: cover;
+    border: 3px solid var(--sage-light);
+  }
+  .about-text p {
+    color: var(--muted); font-size: 0.93rem;
+    line-height: 1.85; margin-bottom: 0.9rem;
+  }
+  .skills-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.4rem; }
+  .skill-pill {
+    background: var(--sage-mist); color: var(--basil);
+    font-size: 0.76rem; font-weight: 500;
+    padding: 5px 14px; border-radius: 20px;
+    border: 1px solid var(--sage-pale);
+  }
+  .location-line {
+    margin-top: 1.2rem; font-size: 0.83rem; color: var(--muted);
+    display: flex; align-items: center; gap: 7px;
+  }
+  .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--sage); display: inline-block; flex-shrink: 0;
+  }
+
+  /* EXPERIENCE */
+  .experience-section { background: var(--warm-white); }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 22px;
+  }
+  .exp-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .exp-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(58,94,53,0.09); }
+  .exp-accent { height: 4px; background: linear-gradient(90deg, var(--basil), var(--sage)); }
+  .exp-card-inner { padding: 1.5rem; }
+  .exp-tag {
+    display: inline-block; background: var(--sage-mist); color: var(--basil);
+    font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.85rem;
+  }
+  .exp-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem; color: var(--charcoal); margin-bottom: 0.15rem;
+  }
+  .exp-card .company { font-size: 0.83rem; color: var(--sage-deep); font-weight: 500; margin-bottom: 0.2rem; }
+  .exp-card .period { font-size: 0.76rem; color: var(--muted); margin-bottom: 0.9rem; }
+  .exp-card .summary { font-size: 0.865rem; color: var(--muted); line-height: 1.75; }
+  .read-more-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--sage-deep); font-size: 0.8rem; font-weight: 600;
+    padding: 0.8rem 1.5rem 1.1rem;
+    display: flex; align-items: center; gap: 5px;
+    font-family: 'DM Sans', sans-serif; transition: color 0.2s;
+  }
+  .read-more-btn:hover { color: var(--hunter); }
+  .read-more-btn .arrow { transition: transform 0.25s; display: inline-block; }
+  .read-more-btn.open .arrow { transform: rotate(180deg); }
+  .exp-expanded {
+    overflow: hidden; max-height: 0;
+    transition: max-height 0.35s ease;
+    border-top: 1px solid var(--sage-pale);
+    background: var(--sage-mist);
+  }
+  .exp-expanded.open { max-height: 700px; }
+  .exp-expanded-inner { padding: 1.2rem 1.5rem 1.4rem; }
+  .bullet-list { list-style: none; padding: 0; }
+  .bullet-list li {
+    font-size: 0.855rem; color: var(--muted); line-height: 1.8;
+    padding: 0.25rem 0 0.25rem 1.2rem; position: relative;
+  }
+  .bullet-list li::before {
+    content: ''; position: absolute; left: 0; top: 0.75rem;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--sage);
+  }
+
+  /* PROJECTS */
+  .projects-section { background: var(--cream); }
+  .project-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+  }
+  .project-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(58,94,53,0.1); }
+  .proj-img-placeholder {
+    width: 100%; height: 155px;
+    background: var(--sage-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 7px;
+    color: var(--sage-deep); font-size: 0.78rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .proj-img-placeholder .icon-ring {
+    width: 30px; height: 30px; border-radius: 6px;
+    border: 1.5px dashed var(--sage);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--sage);
+  }
+  .proj-img { width: 100%; height: 155px; object-fit: cover; display: block; }
+  .proj-body { padding: 1.25rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
+  .proj-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; margin-bottom: 0.5rem; gap: 8px;
+  }
+  .proj-body h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; color: var(--charcoal);
+  }
+  .tool-badge {
+    font-size: 0.7rem; color: var(--basil); font-weight: 600;
+    background: var(--sage-mist); padding: 3px 9px; border-radius: 20px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .proj-body p { font-size: 0.855rem; color: var(--muted); line-height: 1.75; flex: 1; }
+  .proj-cta {
+    margin-top: 1rem; font-size: 0.78rem; font-weight: 600;
+    color: var(--sage-deep); display: inline-flex; align-items: center; gap: 4px;
+  }
+  .project-card:hover .proj-cta { color: var(--hunter); }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--hunter); text-align: center; padding: 72px 6%;
+  }
+  .contact-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.1rem); color: white; margin-bottom: 0.5rem;
+  }
+  .contact-section .sub { color: var(--sage-light); font-size: 0.93rem; margin-bottom: 2.2rem; }
+  .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.9rem; }
+  .contact-btn {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(168,201,160,0.3);
+    color: white; text-decoration: none;
+    font-size: 0.86rem; font-weight: 500;
+    padding: 10px 26px; border-radius: 8px;
+    transition: background 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .contact-btn:hover { background: rgba(255,255,255,0.14); }
+  .contact-meta { margin-top: 2.2rem; color: rgba(255,255,255,0.3); font-size: 0.76rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .avatar-col { flex-direction: row; }
+    nav ul { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="logo-name">Manvi Gupta</span>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Hi, I'm Manvi.</h1>
+  <p>Finding the story behind the numbers — analytics that drive decisions, not just reports.</p>
+  <div class="hero-rule"></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="max-w">
+    <div class="section-label">Who I am</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="avatar-col">
+        <img src="Profile_Image.png" alt="Profile Image" class="profile-img"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="about-text">
+        <p>My background bridges marketing strategy and analytics, equipping me with both the business context to understand what drives growth and the technical skills to prove it. From price optimisation and competitive positioning to lead tracking and campaign strategy, I've developed a strong foundation in analytical concepts that's transferable across industries.</p>
+        <p>As a Business Analytics graduate from Macquarie University, I try to find the right way to tell a story with data and derive insights that actually lead to action.</p>
+        <div class="skills-row">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">QlikSense</span>
+          <span class="skill-pill">Excel</span>
+        </div>
+        <div class="location-line">
+          <span class="dot"></span>
+          Based in Sydney &nbsp;·&nbsp; Open to hybrid and remote work
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience-section" id="experience">
+  <div class="max-w">
+    <div class="section-label">What I've done</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="cards-grid">
+
+      <div class="exp-card">
+        <div class="exp-accent"></div>
+        <div class="exp-card-inner">
+          <span class="exp-tag">Marketing Analytics</span>
+          <h3>Marketing Analyst</h3>
+          <div class="company">Eduauraa Tech Pvt Ltd · India</div>
+          <div class="period">June 2023 – December 2023</div>
+          <p class="summary">Lead generation analysis across channels, school database of 3,000+ entries, and GTM strategy that secured the company's first three clients at 20% conversion.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleExpand(this)">
+          Read more <span class="arrow">▾</span>
+        </button>
+        <div class="exp-expanded">
+          <div class="exp-expanded-inner">
+            <ul class="bullet-list">
+              <li>Analysed lead generation performance across newspapers, Google Ads, and social media using Excel and Tableau to optimise resource allocation.</li>
+              <li>Built a comprehensive database of 3,000+ schools across 29 states, enabling geographic segmentation and targeted outreach strategies.</li>
+              <li>Collaborated with product and sales teams on go-to-market strategy, directly contributing to securing the company's first three clients at a 20% conversion rate.</li>
+              <li>Worked alongside leadership on high-stakes decisions in a fast-paced start-up environment.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-accent"></div>
+        <div class="exp-card-inner">
+          <span class="exp-tag">FMCG · Pricing</span>
+          <h3>Marketing Analyst Intern</h3>
+          <div class="company">Haldiram Snacks Food Pvt Ltd · India</div>
+          <div class="period">December 2024 – January 2025</div>
+          <p class="summary">Price benchmarking across SKUs, new SKU feasibility analysis, and Power BI quarterly reports tracking value and volume growth across two sub-categories.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleExpand(this)">
+          Read more <span class="arrow">▾</span>
+        </button>
+        <div class="exp-expanded">
+          <div class="exp-expanded-inner">
+            <ul class="bullet-list">
+              <li>Contributed to a price benchmarking exercise analysing grammage and competitive positioning across multiple SKUs to support pricing optimisation decisions.</li>
+              <li>Played an active role in the feasibility assessment for a new SKU launch, evaluating technical and financial viability across untapped market segments.</li>
+              <li>Generated quarterly performance reports using Power BI, analysing value and volume growth trends and regional performance across two key sub-categories.</li>
+              <li>Managed concurrent projects spanning market research, pricing strategy, and category management.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-accent"></div>
+        <div class="exp-card-inner">
+          <span class="exp-tag">Retail · Operations</span>
+          <h3>Retail Sales Associate</h3>
+          <div class="company">Mathers &amp; SABA · Sydney</div>
+          <div class="period">February 2025 – Present</div>
+          <p class="summary">Store operations, inventory management, and Excel KPI dashboards — applying an analytical mindset to a customer-facing retail role.</p>
+        </div>
+        <button class="read-more-btn" onclick="toggleExpand(this)">
+          Read more <span class="arrow">▾</span>
+        </button>
+        <div class="exp-expanded">
+          <div class="exp-expanded-inner">
+            <ul class="bullet-list">
+              <li>Oversee daily store operations including opening and closing procedures; manage end-to-end inventory from stock replenishment to visual merchandising.</li>
+              <li>Stepped up to lead team operations during a management transition, taking responsibility for scheduling, coordination, and day-to-day decision-making.</li>
+              <li>Monitor store KPIs — daily sales, conversion rates, average transaction value — using Excel dashboards, bringing analytical thinking to a customer-facing role.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="max-w">
+    <div class="section-label">What I've built</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="cards-grid">
+
+      <!-- When you have your projects ready, replace href with projects/project-name.html -->
+      <!-- Also replace the placeholder div with: <img src="your-screenshot.png" class="proj-img" alt="..."> -->
+
+      <a class="project-card" href="projects/project-1.html">
+        <div class="proj-img-placeholder">
+          <div class="icon-ring">+</div>
+          Add screenshot
+        </div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <h3>Project Title</h3>
+            <span class="tool-badge">Tableau</span>
+          </div>
+          <p>What you analysed, what decision it informed, and what changed as a result — two focused sentences.</p>
+          <span class="proj-cta">View project →</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="projects/project-2.html">
+        <div class="proj-img-placeholder">
+          <div class="icon-ring">+</div>
+          Add screenshot
+        </div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <h3>Project Title</h3>
+            <span class="tool-badge">Power BI · SQL</span>
+          </div>
+          <p>What you analysed, what decision it informed, and what changed as a result — two focused sentences.</p>
+          <span class="proj-cta">View project →</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="projects/project-3.html">
+        <div class="proj-img-placeholder">
+          <div class="icon-ring">+</div>
+          Add screenshot
+        </div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <h3>Project Title</h3>
+            <span class="tool-badge">Python · Excel</span>
+          </div>
+          <p>What you analysed, what decision it informed, and what changed as a result — two focused sentences.</p>
+          <span class="proj-cta">View project →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <h2>Let's connect.</h2>
+  <p class="sub">Open to marketing analytics and data-driven strategy roles in Sydney.</p>
+  <div class="contact-links">
+    <a href="mailto:manvig376@gmail.com" class="contact-btn">✉ Email me</a>
+    <a href="https://linkedin.com/in/manvigupta376" class="contact-btn" target="_blank">LinkedIn</a>
+    <a href="#" class="contact-btn">Download CV</a>
+  </div>
+  <div class="contact-meta">Based in Sydney, NSW &nbsp;·&nbsp; Open to hybrid &amp; remote</div>
+</section>
+
+<script>
+  function toggleExpand(btn) {
+    const card = btn.closest('.exp-card');
+    const panel = card.querySelector('.exp-expanded');
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.querySelector('.arrow').textContent = isOpen ? '▾' : '▴';
+    btn.childNodes[0].textContent = isOpen ? 'Read more ' : 'Read less ';
+  }
+</script>
+</body>
+</html>
