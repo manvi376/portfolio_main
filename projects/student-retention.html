@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Retention — Manvi Gupta</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--hunter:#2D4A2A;--basil:#3A5E35;--sage-deep:#4E7A47;--sage:#6B9E62;--sage-light:#A8C9A0;--sage-pale:#DCE8D8;--sage-mist:#EEF4EB;--cream:#F5F2EC;--warm-white:#FAFAF7;--charcoal:#272820;--muted:#5E6259;--border:#D0D5C8;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--charcoal);font-size:16px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:200;background:var(--hunter);padding:0 6%;display:flex;justify-content:space-between;align-items:center;height:58px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  nav .logo-name{font-family:'DM Serif Display',serif;color:white;font-size:1.05rem;letter-spacing:0.02em;text-decoration:none;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav ul a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
+  nav ul a:hover{color:white;}
+  .page-hero{background:var(--hunter);padding:64px 6% 72px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:rgba(107,158,98,0.08);}
+  .breadcrumb{font-size:0.78rem;color:rgba(255,255,255,0.45);margin-bottom:1.2rem;position:relative;z-index:1;}
+  .breadcrumb a{color:var(--sage-light);text-decoration:none;}
+  .breadcrumb a:hover{color:white;}
+  .page-hero .tag{display:inline-block;background:rgba(107,158,98,0.2);color:var(--sage-light);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1rem;position:relative;z-index:1;}
+  .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;line-height:1.15;max-width:700px;position:relative;z-index:1;}
+  .page-hero .meta{color:var(--sage-light);font-size:0.88rem;font-weight:300;margin-top:0.8rem;position:relative;z-index:1;}
+  .hero-rule{width:36px;height:2px;background:var(--sage);margin-top:1.4rem;position:relative;z-index:1;}
+  .content-wrap{max-width:900px;margin:0 auto;padding:64px 6%;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--sage-deep);font-size:0.84rem;font-weight:500;text-decoration:none;margin-bottom:2.4rem;}
+  .back-link:hover{color:var(--basil);}
+
+  /* SECTION */
+  .section{margin-bottom:52px;}
+  .section h2{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .section p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;}
+
+  /* STATS */
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:1.4rem 0;}
+  @media(max-width:680px){.stat-row{grid-template-columns:1fr 1fr;}}
+  .stat-card{background:white;border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;}
+  .stat-number{font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--basil);line-height:1;}
+  .stat-label{font-size:0.76rem;color:var(--muted);margin-top:4px;}
+
+  /* PIPELINE */
+  .pipeline{display:flex;flex-direction:column;gap:0;}
+  .pipe-step{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--border);}
+  .pipe-step:last-child{border-bottom:none;}
+  .pipe-num{width:30px;height:30px;border-radius:50%;background:var(--hunter);color:white;display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:700;flex-shrink:0;margin-top:3px;}
+  .pipe-content strong{display:block;font-size:0.9rem;color:var(--charcoal);margin-bottom:3px;}
+  .pipe-content span{font-size:0.84rem;color:var(--muted);}
+
+  /* DASHBOARDS GRID */
+  .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.4rem 0;}
+  @media(max-width:600px){.dash-grid{grid-template-columns:1fr;}}
+  .dash-panel{border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--cream);}
+  .dash-panel img{width:100%;display:block;}
+  .dash-placeholder{height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--sage-deep);font-size:0.82rem;background:var(--sage-mist);}
+  .dash-caption{padding:8px 12px;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);background:white;font-style:italic;}
+
+  /* FINDINGS */
+  .finding-row{display:flex;flex-direction:column;gap:10px;margin-top:1rem;}
+  .finding-item{background:white;border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start;}
+  .fi-dot{width:8px;height:8px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:6px;}
+  .finding-item div strong{display:block;font-size:0.88rem;color:var(--charcoal);margin-bottom:2px;}
+  .finding-item div p{font-size:0.83rem;color:var(--muted);margin:0;}
+
+  /* TOOLS */
+  .tools-section{margin-top:8px;padding-top:32px;border-top:1px solid var(--border);}
+  .tools-section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:0.8rem;}
+  .tools-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tool-tag{background:var(--hunter);color:rgba(255,255,255,0.85);font-size:0.74rem;font-weight:500;padding:4px 12px;border-radius:20px;}
+
+  footer{background:var(--hunter);color:rgba(255,255,255,0.45);text-align:center;padding:28px 6%;font-size:0.78rem;}
+  footer a{color:var(--sage-light);text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo-name" href="../index.html">Manvi Gupta</a>
+  <ul>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#projects">Projects</a> / Student Retention</div>
+  <span class="tag">Predictive Analytics · Machine Learning · Dashboard</span>
+  <h1>Student Retention</h1>
+  <p class="meta">R · SQL · Qlik Sense · Power BI &nbsp;·&nbsp; Macquarie University, November 2025</p>
+  <div class="hero-rule"></div>
+</div>
+
+<div class="content-wrap">
+  <a class="back-link" href="../index.html#projects">← Back to Projects</a>
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <h2>Overview</h2>
+    <p>Macquarie Business School (MQBS) was experiencing student attrition without a clear picture of who was leaving, when, and why. Around <strong>20.5% of enrolled students (≈ 4,000 people)</strong> were leaving without completing their degrees — representing an estimated AUD $120 million in potential revenue loss over five years.</p>
+    <p>The goal was to move from retrospective observation to prediction — building a system that could identify at-risk students before they withdrew and surface evidence-based patterns across academic, demographic, and structural dimensions.</p>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-number">19.5K</div><div class="stat-label">Unique student records</div></div>
+      <div class="stat-card"><div class="stat-number">20.5%</div><div class="stat-label">Attrition rate</div></div>
+      <div class="stat-card"><div class="stat-number">85.5%</div><div class="stat-label">Model accuracy</div></div>
+      <div class="stat-card"><div class="stat-number">0.935</div><div class="stat-label">AUC — ROC curve</div></div>
+    </div>
+  </div>
+
+  <!-- APPROACH -->
+  <div class="section">
+    <h2>Approach</h2>
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="pipe-num">1</div>
+        <div class="pipe-content">
+          <strong>Data Preparation</strong>
+          <span>Merged Retention and Enrolment datasets (19,560 records, 2020–2024). Created derived variables: degree progress %, WAM bands, retention classification, repeat-fail flags. Excluded 2025 partial-year data.</span>
+        </div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">2</div>
+        <div class="pipe-content">
+          <strong>Descriptive Analytics — Qlik Sense & Power BI Dashboards</strong>
+          <span>Built 4 interactive dashboards: Overall Retention, Fail Students, Demographic Predictions, and Course/Unit Analysis — filterable by year, session, department, and student type.</span>
+        </div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">3</div>
+        <div class="pipe-content">
+          <strong>K-Means Clustering (R)</strong>
+          <span>Applied K-means (k=4, elbow method) on demographic and academic features. Mapped clusters to actual retention outcomes — Cluster 1 identified as high-risk (5,114 students, 60–70% retention vs. 79.4% average).</span>
+        </div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">4</div>
+        <div class="pipe-content">
+          <strong>Logistic Regression (R)</strong>
+          <span>Binary classifier (retained vs. not retained) with class weighting, threshold lowered to 0.4 to maximise recall. 85.5% accuracy, 90.1% recall, AUC 0.935. Top predictors: course completion %, WAM, repeat-fail status, study load.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARDS -->
+  <div class="section">
+    <h2>Dashboards</h2>
+    <p>Four dashboards were built to cover different dimensions of the retention problem — from institutional trends down to individual course and demographic risk profiles.</p>
+
+    <div class="dash-grid">
+      <!-- Replace each src with your actual dashboard screenshot filenames -->
+      <div class="dash-panel">
+        <img src="../proj_dash_overall.png" alt="Overall Retention Dashboard"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="dash-placeholder" style="display:none"><span style="font-size:2rem">📊</span><span>Add: Overall Retention dashboard</span></div>
+        <div class="dash-caption">Overall Retention — 20.5% attrition KPI, retention-by-year trend, department table</div>
+      </div>
+      <div class="dash-panel">
+        <img src="../proj_dash_fail.png" alt="Fail Students Dashboard"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="dash-placeholder" style="display:none"><span style="font-size:2rem">📉</span><span>Add: Fail Students dashboard</span></div>
+        <div class="dash-caption">Fail Students — WAM bands vs. retention rate, repeat-fail analysis, attrition by year of study</div>
+      </div>
+      <div class="dash-panel">
+        <img src="../proj_dash_demo.png" alt="Demographic Predictions Dashboard"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="dash-placeholder" style="display:none"><span style="font-size:2rem">👥</span><span>Add: Demographic Predictions dashboard</span></div>
+        <div class="dash-caption">Demographic Predictions — retention by citizenship, study mode, gender, equity status</div>
+      </div>
+      <div class="dash-panel">
+        <img src="../proj_dash_course.png" alt="Course Unit Analysis Dashboard"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="dash-placeholder" style="display:none"><span style="font-size:2rem">📚</span><span>Add: Course/Unit Analysis dashboard</span></div>
+        <div class="dash-caption">Course/Unit Analysis — treemap by enrolment, fail vs. withdrawal rate scatter, course retention table</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY FINDINGS -->
+  <div class="section">
+    <h2>Key Findings</h2>
+    <div class="finding-row">
+      <div class="finding-item">
+        <div class="fi-dot"></div>
+        <div><strong>68% of withdrawals happen in Years 1–2</strong><p>The first 50% of degree progression is a critical persistence threshold. First failure is the pivotal event — students without timely support tend to withdraw shortly after.</p></div>
+      </div>
+      <div class="finding-item">
+        <div class="fi-dot"></div>
+        <div><strong>WAM is the single strongest predictor</strong><p>Students with WAM below 50 retained at ~67% vs. 80–88% for those who passed. Repeat-fail students retained at only 60.6% vs. 85% for non-repeat-fail peers.</p></div>
+      </div>
+      <div class="finding-item">
+        <div class="fi-dot"></div>
+        <div><strong>Domestic part-time students are the highest-risk group</strong><p>Retention ≈ 59–61% vs. 84–85% for international full-time students. Balancing employment, study, and family creates compounding disengagement.</p></div>
+      </div>
+      <div class="finding-item">
+        <div class="fi-dot"></div>
+        <div><strong>Course-level structural barriers are independent risk factors</strong><p>Bachelor of Commerce retained at ~45% vs. Marketing at 60%+. Programs with unclear sequencing or heavy assessment loads had systematically worse outcomes regardless of student characteristics.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="tools-section">
+    <h3>Tools &amp; Methods</h3>
+    <div class="tools-row">
+      <span class="tool-tag">R</span>
+      <span class="tool-tag">SQL</span>
+      <span class="tool-tag">Qlik Sense</span>
+      <span class="tool-tag">Power BI</span>
+      <span class="tool-tag">Logistic Regression</span>
+      <span class="tool-tag">K-Means Clustering</span>
+      <span class="tool-tag">KNN</span>
+      <span class="tool-tag">Feature Engineering</span>
+      <span class="tool-tag">ROC / AUC</span>
+    </div>
+  </div>
+
+  <br>
+  <a class="back-link" href="../index.html#projects">← Back to all projects</a>
+</div>
+
+<footer><p>© 2025 Manvi Gupta &nbsp;·&nbsp; <a href="mailto:manvig376@gmail.com">manvig376@gmail.com</a></p></footer>
+</body>
+</html>

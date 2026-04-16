@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haldiram Internship — Manvi Gupta</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--hunter:#2D4A2A;--basil:#3A5E35;--sage-deep:#4E7A47;--sage:#6B9E62;--sage-light:#A8C9A0;--sage-pale:#DCE8D8;--sage-mist:#EEF4EB;--cream:#F5F2EC;--warm-white:#FAFAF7;--charcoal:#272820;--muted:#5E6259;--border:#D0D5C8;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--charcoal);font-size:16px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:200;background:var(--hunter);padding:0 6%;display:flex;justify-content:space-between;align-items:center;height:58px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  nav .logo-name{font-family:'DM Serif Display',serif;color:white;font-size:1.05rem;letter-spacing:0.02em;text-decoration:none;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav ul a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
+  nav ul a:hover{color:white;}
+  .page-hero{background:var(--hunter);padding:64px 6% 72px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:rgba(107,158,98,0.08);}
+  .breadcrumb{font-size:0.78rem;color:rgba(255,255,255,0.45);margin-bottom:1.2rem;position:relative;z-index:1;}
+  .breadcrumb a{color:var(--sage-light);text-decoration:none;}
+  .breadcrumb a:hover{color:white;}
+  .page-hero .tag{display:inline-block;background:rgba(107,158,98,0.2);color:var(--sage-light);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1rem;position:relative;z-index:1;}
+  .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;line-height:1.15;max-width:700px;position:relative;z-index:1;}
+  .page-hero .meta{color:var(--sage-light);font-size:0.88rem;font-weight:300;margin-top:0.8rem;position:relative;z-index:1;}
+  .hero-rule{width:36px;height:2px;background:var(--sage);margin-top:1.4rem;position:relative;z-index:1;}
+  .content-wrap{max-width:860px;margin:0 auto;padding:64px 6%;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--sage-deep);font-size:0.84rem;font-weight:500;text-decoration:none;margin-bottom:2.4rem;}
+  .back-link:hover{color:var(--basil);}
+
+  .task{margin-bottom:56px;}
+  .task-header{display:flex;align-items:baseline;gap:12px;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .task-num{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--sage-deep);}
+  .task-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--charcoal);}
+  .task p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;}
+
+  .img-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.4rem 0;}
+  @media(max-width:600px){.img-row{grid-template-columns:1fr;}}
+  .img-panel{border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--cream);}
+  .img-panel img{width:100%;display:block;}
+  .img-placeholder{height:170px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--sage-deep);font-size:0.82rem;background:var(--sage-mist);}
+  .img-caption{padding:8px 12px;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);background:white;font-style:italic;}
+
+  .tools-section{margin-top:8px;padding-top:32px;border-top:1px solid var(--border);}
+  .tools-section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:0.8rem;}
+  .tools-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tool-tag{background:var(--hunter);color:rgba(255,255,255,0.85);font-size:0.74rem;font-weight:500;padding:4px 12px;border-radius:20px;}
+  footer{background:var(--hunter);color:rgba(255,255,255,0.45);text-align:center;padding:28px 6%;font-size:0.78rem;}
+  footer a{color:var(--sage-light);text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo-name" href="../index.html">Manvi Gupta</a>
+  <ul>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#experience">Experience</a> / Haldiram</div>
+  <span class="tag">FMCG · Category Management · Analytics · Internship</span>
+  <h1>Marketing Analyst Intern<br><em style="font-style:italic;color:var(--sage-light)">Haldiram Snacks Food Pvt Ltd</em></h1>
+  <p class="meta">India &nbsp;·&nbsp; December 2024 – January 2025</p>
+  <div class="hero-rule"></div>
+</div>
+
+<div class="content-wrap">
+  <a class="back-link" href="../index.html#experience">← Back to Experience</a>
+
+  <!-- TASK 1 -->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">01</span>
+      <span class="task-title">Quarterly Sales Report</span>
+    </div>
+    <p>Built the Q3 2024 (Oct–Dec) sales report for two sub-categories — <strong>Sweets Ambient</strong> and <strong>Sweets Frozen</strong> — tracking performance across volume (MT) and value (₹ Crore). The analysis covered state, channel, and product segment breakdowns, comparing current-year vs. last-year across 12M, 6M, 3M, and monthly windows.</p>
+    <p>The main challenge was interpreting a ~70% sales dip in November. I traced it to a <strong>shift in the Diwali festival calendar</strong> — the peak buying period had moved from November (LY) to October (CY). Overlapping the festival dates against sales data confirmed that growth remained consistent when properly normalised. A secondary finding: December's volume growth was outpacing value growth because of heavy end-of-season discounting. One state showed an extreme value/volume divergence — traced through EDA to excess inventory clearance from prior-year over-stocking.</p>
+
+    <div class="img-row">
+      <div class="img-panel">
+        <img src="../Screenshot_2026-04-16_at_2_31_11_PM.png" alt="State sales breakdown"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><span style="font-size:2rem">📊</span><span>State-level YoY growth table</span></div>
+        <div class="img-caption">State-level YoY volume growth — L12M, L6M, L3M and monthly, colour-coded by performance vs. LY</div>
+      </div>
+      <div class="img-panel">
+        <img src="../Screenshot_2026-04-16_at_2_31_40_PM.png" alt="Channel analysis"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><span style="font-size:2rem">📋</span><span>Channel performance breakdown</span></div>
+        <div class="img-caption">SKU-level P&L — GRM, PTR%, PTSS, gross contribution per kg across Soan Papdi and Frozen variants</div>
+      </div>
+    </div>
+
+    <!-- Replace these placeholders with charts from your PDF presentation:
+         e.g. the V-shaped Oct/Nov/Dec value & volume line chart, and the channel table -->
+    <div class="img-row">
+      <div class="img-panel">
+        <div class="img-placeholder"><span style="font-size:2rem">📈</span><span>Add: value &amp; volume growth chart (Oct–Dec)</span></div>
+        <div class="img-caption">Overall value vs. volume growth % — V-shaped pattern explained by Diwali calendar shift</div>
+      </div>
+      <div class="img-panel">
+        <div class="img-placeholder"><span style="font-size:2rem">🗺</span><span>Add: channel breakdown chart</span></div>
+        <div class="img-caption">Primary sales by channel — General Trade, Modern Retail, Digital Commerce, QSR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TASK 2 -->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">02</span>
+      <span class="task-title">New SKU Feasibility &amp; Approval</span>
+    </div>
+    <p>Developed a financial model to assess the feasibility of launching a <strong>new grammage variant</strong> of an existing Soan Papdi product, targeting the underserved ₹5 impulse-purchase segment where competitors had SKUs but Haldiram did not.</p>
+    <p>The model mapped the existing product's cost structure (GRM, MRP, PTR%, PTSS%, GST%, gross contribution per kg) then rebuilt it for the proposed grammage with revised pricing. The side-by-side comparison showed the new SKU could achieve positive gross contribution while filling the market gap — the output was a structured feasibility case presented for internal approval.</p>
+
+    <div class="img-row">
+      <div class="img-panel">
+        <img src="../Screenshot_2026-04-16_at_2_31_47_PM.png" alt="Existing SKU pricing model"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><span style="font-size:2rem">📋</span><span>Existing SKU cost structure</span></div>
+        <div class="img-caption">Existing pricing — PTD, PTSS, and gross contribution per kg across current Soan Papdi variants</div>
+      </div>
+      <div class="img-panel">
+        <img src="../Screenshot_2026-04-16_at_2_19_07_PM.png" alt="Proposed SKU pricing model"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><span style="font-size:2rem">🧮</span><span>Proposed new grammage model</span></div>
+        <div class="img-caption">Proposed SKU — revised grammage, PTD/PTSS structure, and projected gross contribution</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TASK 3 -->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">03</span>
+      <span class="task-title">Competitive Price Benchmarking</span>
+    </div>
+    <p>Conducted structured price benchmarking across Haldiram's Soan Papdi and Tin Sweets range, comparing GMS prices against HR Current/New, BIKAJI, LAL, and SATMOLA — mapping price per grammage tier across pack sizes and assessing margin implications.</p>
+    <p>In one top-performing sub-category, the analysis revealed that a recent price hike was driving value growth ahead of volume — indicating <strong>demand contraction from price sensitivity</strong> rather than pricing strength. Customers were migrating to competitor SKUs at lower price points. This finding directly informed the recommendation to hold price in that segment, and fed into both the SKU feasibility case and the quarterly report's interpretation of the value/volume divergence.</p>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="tools-section">
+    <h3>Tools &amp; Skills</h3>
+    <div class="tools-row">
+      <span class="tool-tag">Power BI</span>
+      <span class="tool-tag">Excel</span>
+      <span class="tool-tag">Category Management</span>
+      <span class="tool-tag">Price Benchmarking</span>
+      <span class="tool-tag">Cost Modelling</span>
+      <span class="tool-tag">Sales Reporting</span>
+      <span class="tool-tag">Root Cause Analysis</span>
+      <span class="tool-tag">SKU Feasibility</span>
+    </div>
+  </div>
+
+  <br>
+  <a class="back-link" href="../index.html#experience">← Back to all experience</a>
+</div>
+
+<footer><p>© 2025 Manvi Gupta &nbsp;·&nbsp; <a href="mailto:manvig376@gmail.com">manvig376@gmail.com</a></p></footer>
+</body>
+</html>

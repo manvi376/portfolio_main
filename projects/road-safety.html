@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road Safety — Manvi Gupta</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--hunter:#2D4A2A;--basil:#3A5E35;--sage-deep:#4E7A47;--sage:#6B9E62;--sage-light:#A8C9A0;--sage-pale:#DCE8D8;--sage-mist:#EEF4EB;--cream:#F5F2EC;--warm-white:#FAFAF7;--charcoal:#272820;--muted:#5E6259;--border:#D0D5C8;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--charcoal);font-size:16px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:200;background:var(--hunter);padding:0 6%;display:flex;justify-content:space-between;align-items:center;height:58px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  nav .logo-name{font-family:'DM Serif Display',serif;color:white;font-size:1.05rem;letter-spacing:0.02em;text-decoration:none;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav ul a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
+  nav ul a:hover{color:white;}
+  .page-hero{background:var(--hunter);padding:64px 6% 72px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:rgba(107,158,98,0.08);}
+  .breadcrumb{font-size:0.78rem;color:rgba(255,255,255,0.45);margin-bottom:1.2rem;position:relative;z-index:1;}
+  .breadcrumb a{color:var(--sage-light);text-decoration:none;}
+  .breadcrumb a:hover{color:white;}
+  .page-hero .tag{display:inline-block;background:rgba(107,158,98,0.2);color:var(--sage-light);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1rem;position:relative;z-index:1;}
+  .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;line-height:1.15;max-width:700px;position:relative;z-index:1;}
+  .page-hero .meta{color:var(--sage-light);font-size:0.88rem;font-weight:300;margin-top:0.8rem;position:relative;z-index:1;}
+  .hero-rule{width:36px;height:2px;background:var(--sage);margin-top:1.4rem;position:relative;z-index:1;}
+  .content-wrap{max-width:920px;margin:0 auto;padding:64px 6%;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--sage-deep);font-size:0.84rem;font-weight:500;text-decoration:none;margin-bottom:2.4rem;}
+  .back-link:hover{color:var(--basil);}
+
+  .section{margin-bottom:52px;}
+  .section h2{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .section p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;}
+
+  /* SIDE-BY-SIDE: image left, text right */
+  .viz-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;margin:1.6rem 0;padding:20px 0;border-bottom:1px solid var(--border);}
+  .viz-pair:last-child{border-bottom:none;}
+  @media(max-width:640px){.viz-pair{grid-template-columns:1fr;}}
+  .viz-img{border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+  .viz-img img{width:100%;display:block;}
+  .viz-placeholder{height:180px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--sage-deep);font-size:0.82rem;background:var(--sage-mist);}
+  .viz-img .img-caption{padding:7px 12px;font-size:0.74rem;color:var(--muted);border-top:1px solid var(--border);background:white;font-style:italic;}
+  .viz-text{}
+  .viz-text .vt-label{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:5px;}
+  .viz-text h4{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--charcoal);margin-bottom:6px;}
+  .viz-text p{font-size:0.87rem;color:var(--muted);margin:0;}
+
+  /* DATA CLEANING (simple list) */
+  .clean-list{display:flex;flex-direction:column;gap:10px;margin-top:1rem;}
+  .clean-item{background:white;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:0.87rem;color:var(--muted);}
+  .clean-item strong{color:var(--charcoal);}
+
+  /* FINDINGS */
+  .finding-row{display:flex;flex-direction:column;gap:10px;margin-top:1rem;}
+  .finding-item{background:white;border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start;}
+  .fi-dot{width:8px;height:8px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:6px;}
+  .finding-item div strong{display:block;font-size:0.88rem;color:var(--charcoal);margin-bottom:2px;}
+  .finding-item div p{font-size:0.83rem;color:var(--muted);margin:0;}
+
+  /* TOOLS */
+  .tools-section{margin-top:8px;padding-top:32px;border-top:1px solid var(--border);}
+  .tools-section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:0.8rem;}
+  .tools-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tool-tag{background:var(--hunter);color:rgba(255,255,255,0.85);font-size:0.74rem;font-weight:500;padding:4px 12px;border-radius:20px;}
+
+  footer{background:var(--hunter);color:rgba(255,255,255,0.45);text-align:center;padding:28px 6%;font-size:0.78rem;}
+  footer a{color:var(--sage-light);text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo-name" href="../index.html">Manvi Gupta</a>
+  <ul>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#projects">Projects</a> / Road Safety</div>
+  <span class="tag">Multivariate Analytics · R · Power BI</span>
+  <h1>Road Safety</h1>
+  <p class="meta">R · Power BI &nbsp;·&nbsp; Macquarie University, September 2025 &nbsp;·&nbsp; Group 21</p>
+  <div class="hero-rule"></div>
+</div>
+
+<div class="content-wrap">
+  <a class="back-link" href="../index.html#projects">← Back to Projects</a>
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <h2>Overview</h2>
+    <p>Analysed a Kaggle traffic accidents dataset using R and Power BI to uncover patterns in crash timing, location, cause, and severity — delivering findings and visualisations structured for a <strong>Traffic Commission</strong> audience. The project covered data cleaning, 13 R visualisations, 7 Power BI dashboards, and a final presentation translating the analysis into actionable insights.</p>
+  </div>
+
+  <!-- DATA CLEANING -->
+  <div class="section">
+    <h2>Data Preparation</h2>
+    <div class="clean-list">
+      <div class="clean-item"><strong>Deduplication</strong> — Removed rows where all accident attributes were identical, ensuring each accident was counted once.</div>
+      <div class="clean-item"><strong>Category consolidation</strong> — Merged 40+ overlapping cause labels into coherent buckets (e.g. "Distraction due to phone – texting" and "Distraction due to phone – talking" → "Electronic Distraction") to produce interpretable charts.</div>
+      <div class="clean-item"><strong>Year filtering</strong> — Removed partial-year entries (2014–2016) with artificially low record counts; standardised analysis to 2017–2024.</div>
+    </div>
+  </div>
+
+  <!-- VISUALISATIONS — side-by-side pairs -->
+  <div class="section">
+    <h2>Visualisations</h2>
+    <p>Each visualisation was built in R using ggplot2. Placeholders below show where to drop your chart screenshots — save them as named PNG files in the root portfolio folder.</p>
+
+    <!-- VIZ 1 -->
+    <div class="viz-pair">
+      <div class="viz-img">
+        <!-- Save as: proj_rs_yeartrend.png -->
+        <img src="../proj_rs_yeartrend.png" alt="Crashes by year" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">📅</span><span>proj_rs_yeartrend.png</span></div>
+        <div class="img-caption">Crashes by year — before and after filtering for partial years</div>
+      </div>
+      <div class="viz-text">
+        <div class="vt-label">Chart 1 — Trend</div>
+        <h4>Crashes by Year</h4>
+        <p>Showed the importance of data cleaning: removing 2014–2016 partial data revealed a stable 2017–2024 baseline of ~22–27K crashes per year, making year-over-year comparison valid.</p>
+      </div>
+    </div>
+
+    <!-- VIZ 2 -->
+    <div class="viz-pair">
+      <div class="viz-img">
+        <!-- Save as: proj_rs_heatmap.png -->
+        <img src="../proj_rs_heatmap.png" alt="Accident density heatmap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">🌡</span><span>proj_rs_heatmap.png</span></div>
+        <div class="img-caption">Accident density by hour of day × day of week</div>
+      </div>
+      <div class="viz-text">
+        <div class="vt-label">Chart 2 — Temporal</div>
+        <h4>Accident Density Heatmap</h4>
+        <p>Identified a concentrated peak risk window: weekday afternoons between 3–6pm (hours 15–18), Days 2–6. Early morning hours (0–5am) showed the lowest density across all days.</p>
+      </div>
+    </div>
+
+    <!-- VIZ 3 -->
+    <div class="viz-pair">
+      <div class="viz-img">
+        <!-- Save as: proj_rs_treemap.png -->
+        <img src="../proj_rs_treemap.png" alt="Crash types by trafficway" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">🗺</span><span>proj_rs_treemap.png</span></div>
+        <div class="img-caption">Treemap — crash volume by trafficway type and severity</div>
+      </div>
+      <div class="viz-text">
+        <div class="vt-label">Chart 3 — Location</div>
+        <h4>Crash Types by Trafficway</h4>
+        <p>Intersections accounted for approximately 65% of all crashes — the single most important location finding for the Traffic Commission audience. Divided roads and special roads followed at much lower volumes.</p>
+      </div>
+    </div>
+
+    <!-- VIZ 4 -->
+    <div class="viz-pair">
+      <div class="viz-img">
+        <!-- Save as: proj_rs_cause.png -->
+        <img src="../proj_rs_cause.png" alt="Accidents by primary cause" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">🍕</span><span>proj_rs_cause.png</span></div>
+        <div class="img-caption">Accidents by primary contributory cause (excluding "Others")</div>
+      </div>
+      <div class="viz-text">
+        <div class="vt-label">Chart 4 — Cause</div>
+        <h4>Primary Contributory Cause</h4>
+        <p>Improper driving (20.1%) was the largest identifiable non-other cause. Two-Wheeler exceptions formed the largest overall category. Road defects were negligible — arguing against prioritising infrastructure spend over behavioural interventions.</p>
+      </div>
+    </div>
+
+    <!-- VIZ 5 -->
+    <div class="viz-pair">
+      <div class="viz-img">
+        <!-- Save as: proj_rs_severity.png -->
+        <img src="../proj_rs_severity.png" alt="Severity by lighting" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">💡</span><span>proj_rs_severity.png</span></div>
+        <div class="img-caption">Accident severity by lighting condition</div>
+      </div>
+      <div class="viz-text">
+        <div class="vt-label">Chart 5 — Severity</div>
+        <h4>Severity by Lighting Condition</h4>
+        <p>Daylight had the highest absolute crash volume — consistent with traffic volume. Fatal crashes were distributed across lighting conditions, suggesting lighting alone is not a primary severity driver.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- POWER BI DASHBOARD -->
+  <div class="section">
+    <h2>Power BI Dashboard</h2>
+    <p>Alongside the R visualisations, an interactive Power BI dashboard was built covering the full dataset — filterable by lighting condition, injury severity, traffic control device, road defect, and trafficway type. The dashboard combined KPI cards, a treemap of primary causes, a crash-by-hour bar chart, a monthly trend line, and a trafficway donut — allowing the Traffic Commission audience to drill into specific scenarios.</p>
+
+    <div class="viz-pair" style="border-bottom:none;">
+      <div class="viz-img">
+        <!-- Save as: proj_rs_powerbi.png — screenshot of your Power BI dashboard -->
+        <img src="../proj_rs_powerbi.png" alt="Power BI dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">📊</span><span>proj_rs_powerbi.png</span></div>
+        <div class="img-caption">Power BI dashboard — full view with filters for severity, lighting, road condition, and trafficway type</div>
+      </div>
+      <div class="viz-text">
+        <div class="vt-label">Power BI</div>
+        <h4>Interactive Dashboard</h4>
+        <p>The dashboard presented four KPI cards (total crashes, total injuries, fatal crashes, avg. vehicles involved), a primary cause treemap, crash volume by hour group, a monthly trend line comparing crashes and injuries, and a trafficway type donut. Cross-filtering across all panels let the audience explore specific conditions — e.g. fatal crashes at intersections during nighttime without road lights.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY FINDINGS -->
+  <div class="section">
+    <h2>Key Findings</h2>
+    <div class="finding-row">
+      <div class="finding-item"><div class="fi-dot"></div><div><strong>~65% of crashes occur at intersections</strong><p>The dominant location type — the strongest single finding for traffic infrastructure planning.</p></div></div>
+      <div class="finding-item"><div class="fi-dot"></div><div><strong>Peak risk: weekday afternoons (3–6pm)</strong><p>Consistent with rush-hour distraction and fatigue — supports targeted enforcement deployment in this window.</p></div></div>
+      <div class="finding-item"><div class="fi-dot"></div><div><strong>Human error dominates over road defects</strong><p>Crashes on defect-free roads far outnumber those on defective surfaces — redirecting resources from infrastructure to behavioural interventions is more impactful.</p></div></div>
+      <div class="finding-item"><div class="fi-dot"></div><div><strong>Police presence correlates with fewer crashes</strong><p>Areas with visible enforcement (Police/Flagman as traffic control device) recorded significantly lower crash counts — suggesting strong deterrence effect.</p></div></div>
+    </div>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="tools-section">
+    <h3>Tools &amp; Methods</h3>
+    <div class="tools-row">
+      <span class="tool-tag">R</span>
+      <span class="tool-tag">ggplot2</span>
+      <span class="tool-tag">Power BI</span>
+      <span class="tool-tag">Data Cleaning</span>
+      <span class="tool-tag">Heatmap Analysis</span>
+      <span class="tool-tag">Treemap</span>
+      <span class="tool-tag">Visual Storytelling</span>
+    </div>
+  </div>
+
+  <br>
+  <a class="back-link" href="../index.html#projects">← Back to all projects</a>
+</div>
+
+<footer><p>© 2025 Manvi Gupta &nbsp;·&nbsp; <a href="mailto:manvig376@gmail.com">manvig376@gmail.com</a></p></footer>
+</body>
+</html>

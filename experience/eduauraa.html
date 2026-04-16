@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduauraa — Manvi Gupta</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--hunter:#2D4A2A;--basil:#3A5E35;--sage-deep:#4E7A47;--sage:#6B9E62;--sage-light:#A8C9A0;--sage-pale:#DCE8D8;--sage-mist:#EEF4EB;--cream:#F5F2EC;--warm-white:#FAFAF7;--charcoal:#272820;--muted:#5E6259;--border:#D0D5C8;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--charcoal);font-size:16px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:200;background:var(--hunter);padding:0 6%;display:flex;justify-content:space-between;align-items:center;height:58px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  nav .logo-name{font-family:'DM Serif Display',serif;color:white;font-size:1.05rem;letter-spacing:0.02em;text-decoration:none;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav ul a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
+  nav ul a:hover{color:white;}
+  .page-hero{background:var(--hunter);padding:64px 6% 72px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:rgba(107,158,98,0.08);}
+  .breadcrumb{font-size:0.78rem;color:rgba(255,255,255,0.45);margin-bottom:1.2rem;position:relative;z-index:1;}
+  .breadcrumb a{color:var(--sage-light);text-decoration:none;}
+  .breadcrumb a:hover{color:white;}
+  .page-hero .tag{display:inline-block;background:rgba(107,158,98,0.2);color:var(--sage-light);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1rem;position:relative;z-index:1;}
+  .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;line-height:1.15;max-width:700px;position:relative;z-index:1;}
+  .page-hero .meta{color:var(--sage-light);font-size:0.88rem;font-weight:300;margin-top:0.8rem;position:relative;z-index:1;}
+  .hero-rule{width:36px;height:2px;background:var(--sage);margin-top:1.4rem;position:relative;z-index:1;}
+  .content-wrap{max-width:860px;margin:0 auto;padding:64px 6%;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--sage-deep);font-size:0.84rem;font-weight:500;text-decoration:none;margin-bottom:2.4rem;}
+  .back-link:hover{color:var(--basil);}
+
+  .task{margin-bottom:56px;}
+  .task-header{display:flex;align-items:baseline;gap:12px;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .task-num{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--sage-deep);}
+  .task-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--charcoal);}
+  .task p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;}
+
+  .work-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:1rem;}
+  .work-list li{display:flex;gap:14px;align-items:flex-start;background:white;border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+  .wi-icon{width:34px;height:34px;border-radius:8px;background:var(--sage-mist);color:var(--sage-deep);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .wi-text strong{display:block;font-size:0.88rem;color:var(--charcoal);margin-bottom:2px;}
+  .wi-text span{font-size:0.84rem;color:var(--muted);}
+
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:1.4rem 0;}
+  @media(max-width:560px){.stat-row{grid-template-columns:1fr;}}
+  .stat-card{background:white;border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+  .stat-number{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--basil);line-height:1;}
+  .stat-label{font-size:0.78rem;color:var(--muted);margin-top:4px;}
+
+  .tools-section{margin-top:8px;padding-top:32px;border-top:1px solid var(--border);}
+  .tools-section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:0.8rem;}
+  .tools-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tool-tag{background:var(--hunter);color:rgba(255,255,255,0.85);font-size:0.74rem;font-weight:500;padding:4px 12px;border-radius:20px;}
+  footer{background:var(--hunter);color:rgba(255,255,255,0.45);text-align:center;padding:28px 6%;font-size:0.78rem;}
+  footer a{color:var(--sage-light);text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo-name" href="../index.html">Manvi Gupta</a>
+  <ul>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#experience">Experience</a> / Eduauraa</div>
+  <span class="tag">EdTech · Growth Analytics · GTM</span>
+  <h1>Marketing Analyst<br><em style="font-style:italic;color:var(--sage-light)">Eduauraa Tech Pvt Ltd</em></h1>
+  <p class="meta">India &nbsp;·&nbsp; June 2023 – December 2023</p>
+  <div class="hero-rule"></div>
+</div>
+
+<div class="content-wrap">
+  <a class="back-link" href="../index.html#experience">← Back to Experience</a>
+
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">01</span>
+      <span class="task-title">Channel Performance &amp; Lead Optimisation</span>
+    </div>
+    <p>Analysed lead generation performance across all active marketing channels — newspaper placements, Google Ads, and social media. Using Excel and Tableau, I tracked cost-per-lead, conversion rate, and volume by source to identify where budget was working hardest and where to reallocate.</p>
+    <ul class="work-list">
+      <li>
+        <div class="wi-icon">📊</div>
+        <div class="wi-text"><strong>Multi-channel performance tracking</strong><span>Built tracking across newspaper, Google Ads, LinkedIn, and organic social — mapping spend, lead volume, and conversion at channel level.</span></div>
+      </li>
+      <li>
+        <div class="wi-icon">💰</div>
+        <div class="wi-text"><strong>Budget reallocation recommendations</strong><span>Identified highest-ROI channels and presented reallocation case using cost-per-lead and conversion data — delivering actionable insights for paid campaign optimisation.</span></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">02</span>
+      <span class="task-title">School Database &amp; Market Segmentation</span>
+    </div>
+    <p>Built a comprehensive database of <strong>3,000+ schools across 29 Indian states</strong> from scratch — sourcing, cleaning, and structuring data to enable geographic segmentation and targeted outreach. This became the core prospecting asset for the sales team.</p>
+    <ul class="work-list">
+      <li>
+        <div class="wi-icon">🗂</div>
+        <div class="wi-text"><strong>3,000+ school database</strong><span>Constructed and maintained a structured Excel database covering school name, type, city, state, board affiliation, and contact details.</span></div>
+      </li>
+      <li>
+        <div class="wi-icon">📍</div>
+        <div class="wi-text"><strong>Geographic market segmentation</strong><span>Segmented schools by state, tier-1/2/3 city classification, and institution type to prioritise outreach in highest-density markets first.</span></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">03</span>
+      <span class="task-title">GTM Strategy &amp; First Client Acquisition</span>
+    </div>
+    <p>Collaborated with the product and sales team on go-to-market strategy — contributing to pitch development, targeting criteria, and the messaging framework used in client outreach. The team secured its <strong>first three clients during my tenure</strong> at a 20% conversion rate from initial outreach, a result the team attributed partly to improved targeting precision and data-backed pitch refinement.</p>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-number">3,000+</div><div class="stat-label">Schools in database across 29 states</div></div>
+      <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">First clients secured during tenure</div></div>
+      <div class="stat-card"><div class="stat-number">20%</div><div class="stat-label">Conversion rate from initial outreach</div></div>
+    </div>
+  </div>
+
+  <div class="tools-section">
+    <h3>Tools &amp; Skills</h3>
+    <div class="tools-row">
+      <span class="tool-tag">Excel</span>
+      <span class="tool-tag">Tableau</span>
+      <span class="tool-tag">Google Ads Analytics</span>
+      <span class="tool-tag">Lead Funnel Analysis</span>
+      <span class="tool-tag">Market Segmentation</span>
+      <span class="tool-tag">Database Management</span>
+      <span class="tool-tag">GTM Strategy</span>
+    </div>
+  </div>
+
+  <br>
+  <a class="back-link" href="../index.html#experience">← Back to all experience</a>
+</div>
+
+<footer><p>© 2025 Manvi Gupta &nbsp;·&nbsp; <a href="mailto:manvig376@gmail.com">manvig376@gmail.com</a></p></footer>
+</body>
+</html>
