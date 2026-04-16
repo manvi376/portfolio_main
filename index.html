@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manvi Gupta — Analyst</title>
+<title>Manvi Gupta — Data Analyst</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -53,13 +53,6 @@
     transition: color 0.2s;
   }
   nav ul a:hover { color: white; }
-  nav .logo-slot {
-    width: 36px; height: 36px; border-radius: 6px;
-    border: 1px dashed rgba(255,255,255,0.25);
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,0.3); font-size: 0.6rem;
-    letter-spacing: 0.04em;
-  }
 
   /* HERO */
   .hero {
@@ -95,7 +88,7 @@
 
   /* SHARED */
   section { padding: 80px 6%; }
-  .max-w { max-width: 1080px; }
+  .max-w { max-width: 1080px; margin: 0 auto; }
   .section-label {
     font-size: 0.72rem; font-weight: 600;
     letter-spacing: 0.1em; text-transform: uppercase;
@@ -117,17 +110,24 @@
     display: flex; flex-direction: column;
     align-items: center; gap: 1rem;
   }
-  .initials-circle {
-    width: 100px; height: 100px; border-radius: 50%;
-    background: var(--basil);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem; color: white; letter-spacing: 0.05em;
-  }
+
+  /* ─── PROFILE IMAGE ───────────────────────────────────────────────────────────
+     Replace the src below with your actual photo filename.
+     Recommended: a clean, friendly headshot, ideally square or slightly portrait.
+     Good lighting, plain or blurred background. Size: ~400×450px.
+     File name: Profile_Image.png (or .jpg) in the same folder as index.html.
+  ─────────────────────────────────────────────────────────────────────────── */
   .profile-img {
     width: 190px; height: 215px;
     border-radius: 12px; object-fit: cover;
     border: 3px solid var(--sage-light);
+  }
+  .initials-circle {
+    width: 190px; height: 215px; border-radius: 12px;
+    background: var(--basil);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem; color: white; letter-spacing: 0.05em;
   }
   .about-text p {
     color: var(--muted); font-size: 0.93rem;
@@ -149,60 +149,78 @@
     background: var(--sage); display: inline-block; flex-shrink: 0;
   }
 
-  /* EXPERIENCE */
-  .experience-section { background: var(--warm-white); }
+  /* CARDS GRID — shared by both experience and projects */
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 22px;
   }
+
+  /* ─── EXPERIENCE CARDS ────────────────────────────────────────────────────────
+     These now follow the same pattern as project cards.
+     The "visual panel" at the top replaces the old exp-accent bar.
+     For each card, add a relevant screenshot or leave the placeholder.
+
+     Image guidance per card:
+       exp-haldiram   → blurred screenshot of your Excel/Power BI sales table
+                        (the channel/region view you shared). File: exp_haldiram.png
+       exp-eduauraa   → a screenshot of your school database in Excel, or a
+                        Tableau chart from the lead analysis. File: exp_eduauraa.png
+       exp-mathers    → a photo of a dashboard/KPI table in Excel, or simply
+                        leave the placeholder. File: exp_mathers.png (optional)
+
+     All images: ~600×200px, landscape crop.
+  ─────────────────────────────────────────────────────────────────────────── */
   .exp-card {
     background: white; border: 1px solid var(--border);
     border-radius: 14px; overflow: hidden;
+    display: flex; flex-direction: column;
     transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; color: inherit;
   }
-  .exp-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(58,94,53,0.09); }
-  .exp-accent { height: 4px; background: linear-gradient(90deg, var(--basil), var(--sage)); }
-  .exp-card-inner { padding: 1.5rem; }
+  .exp-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(58,94,53,0.1); }
+
+  .exp-img-panel {
+    width: 100%; height: 145px;
+    background: var(--sage-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 7px;
+    color: var(--sage-deep); font-size: 0.78rem;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden; position: relative;
+  }
+  .exp-img-panel img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .exp-img-panel .placeholder-icon {
+    width: 32px; height: 32px; border-radius: 6px;
+    border: 1.5px dashed var(--sage);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color: var(--sage);
+  }
+  /* Coloured gradient overlays per card type */
+  .exp-img-panel.fmcg    { background: linear-gradient(135deg, #2D4A2A 0%, #4E7A47 100%); }
+  .exp-img-panel.edtech  { background: linear-gradient(135deg, #2A3D4A 0%, #3A6E7A 100%); }
+  .exp-img-panel.retail  { background: linear-gradient(135deg, #3A2A4A 0%, #6B5A7A 100%); }
+
+  .exp-inner { padding: 1.3rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
   .exp-tag {
     display: inline-block; background: var(--sage-mist); color: var(--basil);
     font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px;
-    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.85rem;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.75rem;
   }
-  .exp-card h3 {
+  .exp-inner h3 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.05rem; color: var(--charcoal); margin-bottom: 0.15rem;
+    font-size: 1.05rem; color: var(--charcoal); margin-bottom: 0.1rem;
   }
-  .exp-card .company { font-size: 0.83rem; color: var(--sage-deep); font-weight: 500; margin-bottom: 0.2rem; }
-  .exp-card .period { font-size: 0.76rem; color: var(--muted); margin-bottom: 0.9rem; }
-  .exp-card .summary { font-size: 0.865rem; color: var(--muted); line-height: 1.75; }
-  .read-more-btn {
-    background: none; border: none; cursor: pointer;
-    color: var(--sage-deep); font-size: 0.8rem; font-weight: 600;
-    padding: 0.8rem 1.5rem 1.1rem;
-    display: flex; align-items: center; gap: 5px;
-    font-family: 'DM Sans', sans-serif; transition: color 0.2s;
+  .exp-inner .company { font-size: 0.83rem; color: var(--sage-deep); font-weight: 500; margin-bottom: 0.15rem; }
+  .exp-inner .period  { font-size: 0.76rem; color: var(--muted); margin-bottom: 0.8rem; }
+  .exp-inner .summary { font-size: 0.855rem; color: var(--muted); line-height: 1.75; flex: 1; }
+  .exp-cta {
+    margin-top: 1rem; font-size: 0.78rem; font-weight: 600;
+    color: var(--sage-deep); display: inline-flex; align-items: center; gap: 4px;
   }
-  .read-more-btn:hover { color: var(--hunter); }
-  .read-more-btn .arrow { transition: transform 0.25s; display: inline-block; }
-  .read-more-btn.open .arrow { transform: rotate(180deg); }
-  .exp-expanded {
-    overflow: hidden; max-height: 0;
-    transition: max-height 0.35s ease;
-    border-top: 1px solid var(--sage-pale);
-    background: var(--sage-mist);
-  }
-  .exp-expanded.open { max-height: 700px; }
-  .exp-expanded-inner { padding: 1.2rem 1.5rem 1.4rem; }
-  .bullet-list { list-style: none; padding: 0; }
-  .bullet-list li {
-    font-size: 0.855rem; color: var(--muted); line-height: 1.8;
-    padding: 0.25rem 0 0.25rem 1.2rem; position: relative;
-  }
-  .bullet-list li::before {
-    content: ''; position: absolute; left: 0; top: 0.75rem;
-    width: 5px; height: 5px; border-radius: 50%; background: var(--sage);
-  }
+  .exp-card:hover .exp-cta { color: var(--hunter); }
 
   /* PROJECTS */
   .projects-section { background: var(--cream); }
@@ -214,21 +232,36 @@
     text-decoration: none; color: inherit;
   }
   .project-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(58,94,53,0.1); }
-  .proj-img-placeholder {
+
+  /* ─── PROJECT IMAGE GUIDANCE ──────────────────────────────────────────────────
+     proj-haldiram  → Use the blurred Excel channel/region screenshot you shared.
+                      Crop to landscape ~600×200px. File: proj_haldiram.png
+     proj-retention → Use one of the Qlik Sense or Power BI dashboard screenshots
+                      from your student retention project. File: proj_retention.png
+                      The ROC curve chart or the "Overall Retention" dashboard
+                      screenshot both work well here.
+  ─────────────────────────────────────────────────────────────────────────── */
+  .proj-img-panel {
     width: 100%; height: 155px;
     background: var(--sage-pale);
     display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 7px;
     color: var(--sage-deep); font-size: 0.78rem;
     border-bottom: 1px solid var(--border);
+    overflow: hidden;
   }
-  .proj-img-placeholder .icon-ring {
+  .proj-img-panel img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .proj-img-panel .icon-ring {
     width: 30px; height: 30px; border-radius: 6px;
     border: 1.5px dashed var(--sage);
     display: flex; align-items: center; justify-content: center;
     font-size: 1rem; color: var(--sage);
   }
-  .proj-img { width: 100%; height: 155px; object-fit: cover; display: block; }
+  .proj-img-panel.analytics { background: linear-gradient(135deg, #1a2a3a 0%, #2D4A2A 100%); }
+  .proj-img-panel.ml        { background: linear-gradient(135deg, #2a1a3a 0%, #4a2d6b 100%); }
+
   .proj-body { padding: 1.25rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
   .proj-header {
     display: flex; justify-content: space-between;
@@ -271,6 +304,9 @@
   .contact-btn:hover { background: rgba(255,255,255,0.14); }
   .contact-meta { margin-top: 2.2rem; color: rgba(255,255,255,0.3); font-size: 0.76rem; }
 
+  /* EXPERIENCE SECTION BG */
+  .experience-section { background: var(--warm-white); }
+
   /* RESPONSIVE */
   @media (max-width: 700px) {
     .about-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -306,24 +342,33 @@
     <h2 class="section-title">About Me</h2>
     <div class="about-grid">
       <div class="avatar-col">
-        <img src="Profile_Image.png" alt="Profile Image" class="profile-img"
-             onerror="this.style.display='none'">
+        <!--
+          PROFILE PHOTO
+          ─────────────
+          Add a clean headshot: friendly, good lighting, plain/blurred background.
+          Recommended size: 400×450px or square cropped.
+          Save as: Profile_Image.png in the same folder as index.html.
+          Once added, the initials fallback below will be hidden automatically.
+        -->
+        <img src="Profile_Image.png" alt="Manvi Gupta" class="profile-img"
+             onerror="this.style.display='none'; document.getElementById('initials-fb').style.display='flex'">
+        <div class="initials-circle" id="initials-fb" style="display:none">MG</div>
       </div>
       <div class="about-text">
-        <p>My background bridges marketing strategy and analytics, equipping me with both the business context to understand what drives growth and the technical skills to prove it. From price optimisation and competitive positioning to lead tracking and campaign strategy, I've developed a strong foundation in analytical concepts that's transferable across industries.</p>
-        <p>As a Business Analytics graduate from Macquarie University, I try to find the right way to tell a story with data and derive insights that actually lead to action.</p>
+        <p>I'm a Business Analytics graduate from Macquarie University with a foundation in Applied Statistics. My background bridges analytics and business strategy — I've worked across FMCG, EdTech, and retail, and what connects every role is the same instinct: find what the data is actually saying, then make sure the right people can act on it.</p>
+        <p>I'm drawn to operational and commercial problems — the kind where the insight has a real downstream consequence. Whether that's identifying why a sales quarter looked worse than it was, or predicting which students are likely to drop out before they do, I build analysis that leads somewhere.</p>
         <div class="skills-row">
           <span class="skill-pill">Python</span>
           <span class="skill-pill">R</span>
           <span class="skill-pill">SQL</span>
           <span class="skill-pill">Tableau</span>
           <span class="skill-pill">Power BI</span>
-          <span class="skill-pill">QlikSense</span>
+          <span class="skill-pill">Qlik Sense</span>
           <span class="skill-pill">Excel</span>
         </div>
         <div class="location-line">
           <span class="dot"></span>
-          Based in Sydney &nbsp;·&nbsp; Open to hybrid and remote work
+          Based in Sydney, NSW &nbsp;·&nbsp; Open to hybrid and on-site roles
         </div>
       </div>
     </div>
@@ -333,80 +378,84 @@
 <!-- EXPERIENCE -->
 <section class="experience-section" id="experience">
   <div class="max-w">
-    <div class="section-label">What I've done</div>
+    <div class="section-label">Where I've worked</div>
     <h2 class="section-title">Experience</h2>
     <div class="cards-grid">
 
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-card-inner">
-          <span class="exp-tag">Marketing Analytics</span>
-          <h3>Marketing Analyst</h3>
-          <div class="company">Eduauraa Tech Pvt Ltd · India</div>
-          <div class="period">June 2023 – December 2023</div>
-          <p class="summary">Lead generation analysis across channels, school database of 3,000+ entries, and GTM strategy that secured the company's first three clients at 20% conversion.</p>
+      <!--
+        HALDIRAM CARD IMAGE
+        ───────────────────
+        Use one of the blurred Excel screenshots you shared —
+        the channel/region breakdown table (vol & value, LY vs CY columns).
+        Blur the numbers, keep the structure visible (that's the point).
+        Crop to landscape, ~600×200px. Save as: exp_haldiram.png
+        If no image yet, the green gradient shows as a placeholder.
+      -->
+      <a class="exp-card" href="experience/haldiram.html">
+        <div class="exp-img-panel fmcg">
+          <img src="exp_haldiram.png" alt="Haldiram sales analysis"
+               onerror="this.style.display='none'">
+          <div class="placeholder-icon" id="ph-haldiram">📊</div>
+          <span style="color:rgba(255,255,255,0.6);font-size:0.75rem">Sales Performance Analysis</span>
         </div>
-        <button class="read-more-btn" onclick="toggleExpand(this)">
-          Read more <span class="arrow">▾</span>
-        </button>
-        <div class="exp-expanded">
-          <div class="exp-expanded-inner">
-            <ul class="bullet-list">
-              <li>Analysed lead generation performance across newspapers, Google Ads, and social media using Excel and Tableau to optimise resource allocation.</li>
-              <li>Built a comprehensive database of 3,000+ schools across 29 states, enabling geographic segmentation and targeted outreach strategies.</li>
-              <li>Collaborated with product and sales teams on go-to-market strategy, directly contributing to securing the company's first three clients at a 20% conversion rate.</li>
-              <li>Worked alongside leadership on high-stakes decisions in a fast-paced start-up environment.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-card-inner">
-          <span class="exp-tag">FMCG · Pricing</span>
+        <div class="exp-inner">
+          <span class="exp-tag">FMCG · Pricing · Reporting</span>
           <h3>Marketing Analyst Intern</h3>
           <div class="company">Haldiram Snacks Food Pvt Ltd · India</div>
           <div class="period">December 2024 – January 2025</div>
-          <p class="summary">Price benchmarking across SKUs, new SKU feasibility analysis, and Power BI quarterly reports tracking value and volume growth across two sub-categories.</p>
+          <p class="summary">Built quarterly performance reports in Power BI, conducted competitive price benchmarking across SKUs, and led feasibility analysis for a new product launch targeting an untapped market segment.</p>
+          <span class="exp-cta">View case study →</span>
         </div>
-        <button class="read-more-btn" onclick="toggleExpand(this)">
-          Read more <span class="arrow">▾</span>
-        </button>
-        <div class="exp-expanded">
-          <div class="exp-expanded-inner">
-            <ul class="bullet-list">
-              <li>Contributed to a price benchmarking exercise analysing grammage and competitive positioning across multiple SKUs to support pricing optimisation decisions.</li>
-              <li>Played an active role in the feasibility assessment for a new SKU launch, evaluating technical and financial viability across untapped market segments.</li>
-              <li>Generated quarterly performance reports using Power BI, analysing value and volume growth trends and regional performance across two key sub-categories.</li>
-              <li>Managed concurrent projects spanning market research, pricing strategy, and category management.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      </a>
 
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-card-inner">
-          <span class="exp-tag">Retail · Operations</span>
+      <!--
+        EDUAURAA CARD IMAGE
+        ───────────────────
+        Ideal: a screenshot of your school database in Excel (3,000+ rows,
+        state/city columns visible) or a Tableau chart from the lead analysis.
+        Crop to ~600×200px. Save as: exp_eduauraa.png
+        The teal gradient shows if no image is added.
+      -->
+      <a class="exp-card" href="experience/eduauraa.html">
+        <div class="exp-img-panel edtech">
+          <img src="exp_eduauraa.png" alt="Eduauraa analytics"
+               onerror="this.style.display='none'">
+          <div class="placeholder-icon">📍</div>
+          <span style="color:rgba(255,255,255,0.6);font-size:0.75rem">Lead Generation & Market Mapping</span>
+        </div>
+        <div class="exp-inner">
+          <span class="exp-tag">EdTech · Analytics · GTM</span>
+          <h3>Marketing Analyst</h3>
+          <div class="company">Eduauraa Tech Pvt Ltd · India</div>
+          <div class="period">June 2023 – December 2023</div>
+          <p class="summary">Analysed lead performance across all marketing channels, built a database of 3,000+ schools across 29 states, and contributed to a GTM strategy that secured the company's first three clients at 20% conversion.</p>
+          <span class="exp-cta">View case study →</span>
+        </div>
+      </a>
+
+      <!--
+        MATHERS CARD IMAGE
+        ──────────────────
+        Optional — a photo of a KPI dashboard/table in Excel, or a photo of
+        the store environment (products/display). If none, the purple gradient
+        placeholder works fine. Save as: exp_mathers.png
+      -->
+      <a class="exp-card" href="experience/mathers.html">
+        <div class="exp-img-panel retail">
+          <img src="exp_mathers.png" alt="Retail operations"
+               onerror="this.style.display='none'">
+          <div class="placeholder-icon">🗂</div>
+          <span style="color:rgba(255,255,255,0.6);font-size:0.75rem">Store KPI Tracking</span>
+        </div>
+        <div class="exp-inner">
+          <span class="exp-tag">Retail · Operations · KPIs</span>
           <h3>Retail Sales Associate</h3>
           <div class="company">Mathers &amp; SABA · Sydney</div>
           <div class="period">February 2025 – Present</div>
-          <p class="summary">Store operations, inventory management, and Excel KPI dashboards — applying an analytical mindset to a customer-facing retail role.</p>
+          <p class="summary">Stepped up to lead team operations during a management transition, overseeing scheduling and decision-making. Monitor daily KPIs — conversion rates, average transaction value, daily sales — using Excel dashboards.</p>
+          <span class="exp-cta">View details →</span>
         </div>
-        <button class="read-more-btn" onclick="toggleExpand(this)">
-          Read more <span class="arrow">▾</span>
-        </button>
-        <div class="exp-expanded">
-          <div class="exp-expanded-inner">
-            <ul class="bullet-list">
-              <li>Oversee daily store operations including opening and closing procedures; manage end-to-end inventory from stock replenishment to visual merchandising.</li>
-              <li>Stepped up to lead team operations during a management transition, taking responsibility for scheduling, coordination, and day-to-day decision-making.</li>
-              <li>Monitor store KPIs — daily sales, conversion rates, average transaction value — using Excel dashboards, bringing analytical thinking to a customer-facing role.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -419,50 +468,54 @@
     <h2 class="section-title">Projects</h2>
     <div class="cards-grid">
 
-      <!-- When you have your projects ready, replace href with projects/project-name.html -->
-      <!-- Also replace the placeholder div with: <img src="your-screenshot.png" class="proj-img" alt="..."> -->
-
-      <a class="project-card" href="projects/project-1.html">
-        <div class="proj-img-placeholder">
-          <div class="icon-ring">+</div>
-          Add screenshot
+      <!--
+        PROJECT 1 IMAGE — Haldiram Sales Analysis
+        ──────────────────────────────────────────
+        Use the blurred Excel channel/state breakdown screenshot (the coloured
+        growth % table — red/green heat map). That visual immediately signals
+        "data analyst" to a recruiter. Crop to ~600×210px landscape.
+        Save as: proj_haldiram.png
+      -->
+      <a class="project-card" href="projects/haldiram-analysis.html">
+        <div class="proj-img-panel analytics">
+          <img src="proj_haldiram.png" alt="Haldiram sales analysis"
+               onerror="this.style.display='none'">
+          <div class="icon-ring">📈</div>
+          <span style="color:rgba(255,255,255,0.55);font-size:0.75rem;margin-top:4px">Performance Reporting</span>
         </div>
         <div class="proj-body">
           <div class="proj-header">
-            <h3>Project Title</h3>
-            <span class="tool-badge">Tableau</span>
+            <h3>Sales Performance & Variance Analysis</h3>
+            <span class="tool-badge">Power BI · Excel</span>
           </div>
-          <p>What you analysed, what decision it informed, and what changed as a result — two focused sentences.</p>
+          <p>Diagnosed a 70% sales dip at a major FMCG brand — traced to festival calendar shifts, logistics discounting, and price-sensitivity in a top sub-category. Built quarterly reporting across region, channel, and product dimensions.</p>
           <span class="proj-cta">View project →</span>
         </div>
       </a>
 
-      <a class="project-card" href="projects/project-2.html">
-        <div class="proj-img-placeholder">
-          <div class="icon-ring">+</div>
-          Add screenshot
+      <!--
+        PROJECT 2 IMAGE — Student Retention
+        ─────────────────────────────────────
+        Use either:
+          (a) The "Overall Retention" Qlik Sense dashboard screenshot (shows
+              the 20.5% attrition KPI, the retention-by-year trend line, and
+              the department table). This is your strongest dashboard visual.
+          (b) The ROC curve chart — clean, technical, impressive.
+        Crop to ~600×210px landscape. Save as: proj_retention.png
+      -->
+      <a class="project-card" href="projects/student-retention.html">
+        <div class="proj-img-panel ml">
+          <img src="proj_retention.png" alt="Student retention dashboard"
+               onerror="this.style.display='none'">
+          <div class="icon-ring">🔍</div>
+          <span style="color:rgba(255,255,255,0.55);font-size:0.75rem;margin-top:4px">Predictive Analytics</span>
         </div>
         <div class="proj-body">
           <div class="proj-header">
-            <h3>Project Title</h3>
-            <span class="tool-badge">Power BI · SQL</span>
+            <h3>Student Retention Analytics & Risk Modelling</h3>
+            <span class="tool-badge">R · SQL · Qlik Sense · Power BI</span>
           </div>
-          <p>What you analysed, what decision it informed, and what changed as a result — two focused sentences.</p>
-          <span class="proj-cta">View project →</span>
-        </div>
-      </a>
-
-      <a class="project-card" href="projects/project-3.html">
-        <div class="proj-img-placeholder">
-          <div class="icon-ring">+</div>
-          Add screenshot
-        </div>
-        <div class="proj-body">
-          <div class="proj-header">
-            <h3>Project Title</h3>
-            <span class="tool-badge">Python · Excel</span>
-          </div>
-          <p>What you analysed, what decision it informed, and what changed as a result — two focused sentences.</p>
+          <p>Analysed 19,500+ student records to identify dropout risk factors. Built logistic regression and KNN clustering models (85% accuracy, AUC 0.935) and delivered a dashboard-driven roadmap projected to recover AUD $10M in tuition revenue.</p>
           <span class="proj-cta">View project →</span>
         </div>
       </a>
@@ -474,25 +527,14 @@
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <h2>Let's connect.</h2>
-  <p class="sub">Open to marketing analytics and data-driven strategy roles in Sydney.</p>
+  <p class="sub">Open to data analyst roles in Sydney — operational, commercial, or project-based environments.</p>
   <div class="contact-links">
     <a href="mailto:manvig376@gmail.com" class="contact-btn">✉ Email me</a>
-    <a href="https://linkedin.com/in/manvigupta376" class="contact-btn" target="_blank">LinkedIn</a>
-    <a href="#" class="contact-btn">Download CV</a>
+    <a href="https://linkedin.com/in/manvigupta376" class="contact-btn" target="_blank">LinkedIn →</a>
+    <a href="Manvi_Gupta_CV.pdf" class="contact-btn" target="_blank">Download CV</a>
   </div>
-  <div class="contact-meta">Based in Sydney, NSW &nbsp;·&nbsp; Open to hybrid &amp; remote</div>
+  <div class="contact-meta">Based in Sydney, NSW &nbsp;·&nbsp; Open to hybrid &amp; on-site</div>
 </section>
 
-<script>
-  function toggleExpand(btn) {
-    const card = btn.closest('.exp-card');
-    const panel = card.querySelector('.exp-expanded');
-    const isOpen = panel.classList.contains('open');
-    panel.classList.toggle('open', !isOpen);
-    btn.classList.toggle('open', !isOpen);
-    btn.querySelector('.arrow').textContent = isOpen ? '▾' : '▴';
-    btn.childNodes[0].textContent = isOpen ? 'Read more ' : 'Read less ';
-  }
-</script>
 </body>
 </html>
