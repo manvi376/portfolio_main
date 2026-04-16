@@ -26,20 +26,15 @@
   .content-wrap{max-width:860px;margin:0 auto;padding:64px 6%;}
   .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--sage-deep);font-size:0.84rem;font-weight:500;text-decoration:none;margin-bottom:2.4rem;}
   .back-link:hover{color:var(--basil);}
-
   .task{margin-bottom:56px;}
   .task-header{display:flex;align-items:baseline;gap:12px;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
   .task-num{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--sage-deep);}
   .task-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--charcoal);}
-  .task p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;}
-
-  .img-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.4rem 0;}
-  @media(max-width:600px){.img-row{grid-template-columns:1fr;}}
+  .task p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;text-align:justify;}
+  .img-row{display:flex;flex-direction:column;gap:14px;margin:1.4rem 0;}
   .img-panel{border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--cream);}
   .img-panel img{width:100%;display:block;}
-  .img-placeholder{height:170px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--sage-deep);font-size:0.82rem;background:var(--sage-mist);}
   .img-caption{padding:8px 12px;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);background:white;font-style:italic;}
-
   .tools-section{margin-top:8px;padding-top:32px;border-top:1px solid var(--border);}
   .tools-section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:0.8rem;}
   .tools-row{display:flex;flex-wrap:wrap;gap:8px;}
@@ -81,29 +76,12 @@
 
     <div class="img-row">
       <div class="img-panel">
-        <img src="../Screenshot_2026-04-16_at_2_31_11_PM.png" alt="State sales breakdown"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="img-placeholder" style="display:none"><span style="font-size:2rem">📊</span><span>State-level YoY growth table</span></div>
+        <img src="../State.png" alt="State-wise sales analysis">
         <div class="img-caption">State-level YoY volume growth — L12M, L6M, L3M and monthly, colour-coded by performance vs. LY</div>
       </div>
       <div class="img-panel">
-        <img src="../Screenshot_2026-04-16_at_2_31_40_PM.png" alt="Channel analysis"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="img-placeholder" style="display:none"><span style="font-size:2rem">📋</span><span>Channel performance breakdown</span></div>
-        <div class="img-caption">SKU-level P&L — GRM, PTR%, PTSS, gross contribution per kg across Soan Papdi and Frozen variants</div>
-      </div>
-    </div>
-
-    <!-- Replace these placeholders with charts from your PDF presentation:
-         e.g. the V-shaped Oct/Nov/Dec value & volume line chart, and the channel table -->
-    <div class="img-row">
-      <div class="img-panel">
-        <div class="img-placeholder"><span style="font-size:2rem">📈</span><span>Add: value &amp; volume growth chart (Oct–Dec)</span></div>
-        <div class="img-caption">Overall value vs. volume growth % — V-shaped pattern explained by Diwali calendar shift</div>
-      </div>
-      <div class="img-panel">
-        <div class="img-placeholder"><span style="font-size:2rem">🗺</span><span>Add: channel breakdown chart</span></div>
-        <div class="img-caption">Primary sales by channel — General Trade, Modern Retail, Digital Commerce, QSR</div>
+        <img src="../Channel.png" alt="Channel sales analysis">
+        <div class="img-caption">Channel performance breakdown — General Trade, Modern Retail, Digital Commerce, QSR</div>
       </div>
     </div>
   </div>
@@ -119,15 +97,11 @@
 
     <div class="img-row">
       <div class="img-panel">
-        <img src="../Screenshot_2026-04-16_at_2_31_47_PM.png" alt="Existing SKU pricing model"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="img-placeholder" style="display:none"><span style="font-size:2rem">📋</span><span>Existing SKU cost structure</span></div>
+        <img src="../Existing.png" alt="Existing SKU pricing model">
         <div class="img-caption">Existing pricing — PTD, PTSS, and gross contribution per kg across current Soan Papdi variants</div>
       </div>
       <div class="img-panel">
-        <img src="../Screenshot_2026-04-16_at_2_19_07_PM.png" alt="Proposed SKU pricing model"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="img-placeholder" style="display:none"><span style="font-size:2rem">🧮</span><span>Proposed new grammage model</span></div>
+        <img src="../Proposed.png" alt="Proposed SKU pricing model">
         <div class="img-caption">Proposed SKU — revised grammage, PTD/PTSS structure, and projected gross contribution</div>
       </div>
     </div>
@@ -141,6 +115,13 @@
     </div>
     <p>Conducted structured price benchmarking across Haldiram's Soan Papdi and Tin Sweets range, comparing GMS prices against HR Current/New, BIKAJI, LAL, and SATMOLA — mapping price per grammage tier across pack sizes and assessing margin implications.</p>
     <p>In one top-performing sub-category, the analysis revealed that a recent price hike was driving value growth ahead of volume — indicating <strong>demand contraction from price sensitivity</strong> rather than pricing strength. Customers were migrating to competitor SKUs at lower price points. This finding directly informed the recommendation to hold price in that segment, and fed into both the SKU feasibility case and the quarterly report's interpretation of the value/volume divergence.</p>
+
+    <div class="img-row">
+      <div class="img-panel">
+        <img src="../Price_Benchmarking.png" alt="Competitive price benchmarking">
+        <div class="img-caption">Competitor price benchmarking — GMS prices across HR, LAL, BIKAJI, SATMOLA mapped by product and pack size</div>
+      </div>
+    </div>
   </div>
 
   <!-- TOOLS -->
