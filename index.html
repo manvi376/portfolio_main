@@ -468,41 +468,7 @@
     <h2 class="section-title">Projects</h2>
     <div class="cards-grid">
 
-      <!--
-        PROJECT 1 IMAGE — Haldiram Sales Analysis
-        ──────────────────────────────────────────
-        Use the blurred Excel channel/state breakdown screenshot (the coloured
-        growth % table — red/green heat map). That visual immediately signals
-        "data analyst" to a recruiter. Crop to ~600×210px landscape.
-        Save as: proj_haldiram.png
-      -->
-      <a class="project-card" href="projects/haldiram-analysis.html">
-        <div class="proj-img-panel analytics">
-          <img src="proj_haldiram.png" alt="Haldiram sales analysis"
-               onerror="this.style.display='none'">
-          <div class="icon-ring">📈</div>
-          <span style="color:rgba(255,255,255,0.55);font-size:0.75rem;margin-top:4px">Performance Reporting</span>
-        </div>
-        <div class="proj-body">
-          <div class="proj-header">
-            <h3>Sales Performance & Variance Analysis</h3>
-            <span class="tool-badge">Power BI · Excel</span>
-          </div>
-          <p>Diagnosed a 70% sales dip at a major FMCG brand — traced to festival calendar shifts, logistics discounting, and price-sensitivity in a top sub-category. Built quarterly reporting across region, channel, and product dimensions.</p>
-          <span class="proj-cta">View project →</span>
-        </div>
-      </a>
-
-      <!--
-        PROJECT 2 IMAGE — Student Retention
-        ─────────────────────────────────────
-        Use either:
-          (a) The "Overall Retention" Qlik Sense dashboard screenshot (shows
-              the 20.5% attrition KPI, the retention-by-year trend line, and
-              the department table). This is your strongest dashboard visual.
-          (b) The ROC curve chart — clean, technical, impressive.
-        Crop to ~600×210px landscape. Save as: proj_retention.png
-      -->
+      <!-- Student Retention — proj_retention.png from Qlik/Power BI dashboard or ROC curve -->
       <a class="project-card" href="projects/student-retention.html">
         <div class="proj-img-panel ml">
           <img src="proj_retention.png" alt="Student retention dashboard"
@@ -512,10 +478,28 @@
         </div>
         <div class="proj-body">
           <div class="proj-header">
-            <h3>Student Retention Analytics & Risk Modelling</h3>
+            <h3>Student Retention</h3>
             <span class="tool-badge">R · SQL · Qlik Sense · Power BI</span>
           </div>
-          <p>Analysed 19,500+ student records to identify dropout risk factors. Built logistic regression and KNN clustering models (85% accuracy, AUC 0.935) and delivered a dashboard-driven roadmap projected to recover AUD $10M in tuition revenue.</p>
+          <p>Analysed 19,500+ student records to identify dropout risk factors. Built logistic regression and KNN clustering models (85% accuracy, AUC 0.935) and delivered four interactive dashboards tracking retention across academic, demographic, and course dimensions.</p>
+          <span class="proj-cta">View project →</span>
+        </div>
+      </a>
+
+      <!-- Road Safety — proj_roadsafety.png, e.g. heatmap or Power BI dashboard screenshot -->
+      <a class="project-card" href="projects/road-safety.html">
+        <div class="proj-img-panel analytics">
+          <img src="proj_roadsafety.png" alt="Road safety dashboard"
+               onerror="this.style.display='none'">
+          <div class="icon-ring">🚦</div>
+          <span style="color:rgba(255,255,255,0.55);font-size:0.75rem;margin-top:4px">Visual Analytics</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <h3>Road Safety</h3>
+            <span class="tool-badge">R · Power BI</span>
+          </div>
+          <p>Analysed a traffic accidents dataset using R and Power BI to uncover patterns in crash timing, location, cause, and severity. Delivered 13 visualisations and 7 dashboards with data-driven recommendations for the Traffic Commission.</p>
           <span class="proj-cta">View project →</span>
         </div>
       </a>
@@ -531,7 +515,7 @@
   <div class="contact-links">
     <a href="mailto:manvig376@gmail.com" class="contact-btn">✉ Email me</a>
     <a href="https://linkedin.com/in/manvigupta376" class="contact-btn" target="_blank">LinkedIn →</a>
-    <a href="Manvi_Gupta_CV.pdf" class="contact-btn" target="_blank">Download CV</a>
+    <a href="tel:+61494093376" class="contact-btn" onclick="navigator.clipboard.writeText('+61494093376');this.textContent='Copied!';setTimeout(()=>this.textContent='📞 Phone No.',1500);return false;">📞 Phone No.</a>
   </div>
   <div class="contact-meta">Based in Sydney, NSW &nbsp;·&nbsp; Open to hybrid &amp; on-site</div>
 </section>
