@@ -29,7 +29,7 @@
 
   .section{margin-bottom:52px;}
   .section h2{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
-  .section p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;}
+  .section p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;text-align:justify;}
 
   /* SIDE-BY-SIDE: image left, text right */
   .viz-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;margin:1.6rem 0;padding:20px 0;border-bottom:1px solid var(--border);}
@@ -37,16 +37,14 @@
   @media(max-width:640px){.viz-pair{grid-template-columns:1fr;}}
   .viz-img{border-radius:10px;overflow:hidden;border:1px solid var(--border);}
   .viz-img img{width:100%;display:block;}
-  .viz-placeholder{height:180px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--sage-deep);font-size:0.82rem;background:var(--sage-mist);}
   .viz-img .img-caption{padding:7px 12px;font-size:0.74rem;color:var(--muted);border-top:1px solid var(--border);background:white;font-style:italic;}
-  .viz-text{}
   .viz-text .vt-label{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:5px;}
   .viz-text h4{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--charcoal);margin-bottom:6px;}
-  .viz-text p{font-size:0.87rem;color:var(--muted);margin:0;}
+  .viz-text p{font-size:0.87rem;color:var(--muted);margin:0;text-align:justify;}
 
-  /* DATA CLEANING (simple list) */
+  /* DATA CLEANING */
   .clean-list{display:flex;flex-direction:column;gap:10px;margin-top:1rem;}
-  .clean-item{background:white;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:0.87rem;color:var(--muted);}
+  .clean-item{background:white;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:0.87rem;color:var(--muted);text-align:justify;}
   .clean-item strong{color:var(--charcoal);}
 
   /* FINDINGS */
@@ -54,7 +52,7 @@
   .finding-item{background:white;border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start;}
   .fi-dot{width:8px;height:8px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:6px;}
   .finding-item div strong{display:block;font-size:0.88rem;color:var(--charcoal);margin-bottom:2px;}
-  .finding-item div p{font-size:0.83rem;color:var(--muted);margin:0;}
+  .finding-item div p{font-size:0.83rem;color:var(--muted);margin:0;text-align:justify;}
 
   /* TOOLS */
   .tools-section{margin-top:8px;padding-top:32px;border-top:1px solid var(--border);}
@@ -91,10 +89,10 @@
   <!-- OVERVIEW -->
   <div class="section">
     <h2>Overview</h2>
-    <p>Analysed a Kaggle traffic accidents dataset using R and Power BI to uncover patterns in crash timing, location, cause, and severity — delivering findings and visualisations structured for a <strong>Traffic Commission</strong> audience. The project covered data cleaning, 13 R visualisations, 7 Power BI dashboards, and a final presentation translating the analysis into actionable insights.</p>
+    <p>Analysed a Kaggle traffic accidents dataset using R and Power BI to uncover patterns in crash timing, location, cause, and severity — delivering findings and visualisations structured for a <strong>Traffic Commission</strong> audience. The project covered data cleaning, R visualisations, an interactive Power BI dashboard, and a final presentation translating the analysis into actionable insights.</p>
   </div>
 
-  <!-- DATA CLEANING -->
+  <!-- DATA PREPARATION -->
   <div class="section">
     <h2>Data Preparation</h2>
     <div class="clean-list">
@@ -104,83 +102,73 @@
     </div>
   </div>
 
-  <!-- VISUALISATIONS — side-by-side pairs -->
+  <!-- R VISUALISATIONS -->
   <div class="section">
-    <h2>Visualisations</h2>
-    <p>Each visualisation was built in R using ggplot2. Placeholders below show where to drop your chart screenshots — save them as named PNG files in the root portfolio folder.</p>
+    <h2>R Visualisations</h2>
+    <p>Each chart was built in R using ggplot2, with the dataset filtered and cleaned prior to visualisation. The five charts below cover temporal patterns, location, cause, road condition, and lighting severity.</p>
 
-    <!-- VIZ 1 -->
+    <!-- HEATMAP -->
     <div class="viz-pair">
       <div class="viz-img">
-        <!-- Save as: proj_rs_yeartrend.png -->
-        <img src="../proj_rs_yeartrend.png" alt="Crashes by year" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">📅</span><span>proj_rs_yeartrend.png</span></div>
-        <div class="img-caption">Crashes by year — before and after filtering for partial years</div>
-      </div>
-      <div class="viz-text">
-        <div class="vt-label">Chart 1 — Trend</div>
-        <h4>Crashes by Year</h4>
-        <p>Showed the importance of data cleaning: removing 2014–2016 partial data revealed a stable 2017–2024 baseline of ~22–27K crashes per year, making year-over-year comparison valid.</p>
-      </div>
-    </div>
-
-    <!-- VIZ 2 -->
-    <div class="viz-pair">
-      <div class="viz-img">
-        <!-- Save as: proj_rs_heatmap.png -->
-        <img src="../proj_rs_heatmap.png" alt="Accident density heatmap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">🌡</span><span>proj_rs_heatmap.png</span></div>
+        <img src="../HeatMap.png" alt="Accident density heatmap">
         <div class="img-caption">Accident density by hour of day × day of week</div>
       </div>
       <div class="viz-text">
-        <div class="vt-label">Chart 2 — Temporal</div>
+        <div class="vt-label">Temporal</div>
         <h4>Accident Density Heatmap</h4>
-        <p>Identified a concentrated peak risk window: weekday afternoons between 3–6pm (hours 15–18), Days 2–6. Early morning hours (0–5am) showed the lowest density across all days.</p>
+        <p>Identified a concentrated peak risk window: weekday afternoons between 3–6pm (hours 15–18), Days 2–6. Early morning hours (0–5am) showed the lowest density across all days — consistent with reduced traffic volume.</p>
       </div>
     </div>
 
-    <!-- VIZ 3 -->
+    <!-- TREEMAP -->
     <div class="viz-pair">
       <div class="viz-img">
-        <!-- Save as: proj_rs_treemap.png -->
-        <img src="../proj_rs_treemap.png" alt="Crash types by trafficway" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">🗺</span><span>proj_rs_treemap.png</span></div>
-        <div class="img-caption">Treemap — crash volume by trafficway type and severity</div>
+        <img src="../TreeMap.png" alt="Treemap of crash types by trafficway type">
+        <div class="img-caption">Crash volume nested by trafficway type and injury severity</div>
       </div>
       <div class="viz-text">
-        <div class="vt-label">Chart 3 — Location</div>
+        <div class="vt-label">Location</div>
         <h4>Crash Types by Trafficway</h4>
-        <p>Intersections accounted for approximately 65% of all crashes — the single most important location finding for the Traffic Commission audience. Divided roads and special roads followed at much lower volumes.</p>
+        <p>Intersections accounted for approximately 65% of all crashes — the single most important location finding for the Traffic Commission audience. Divided roads and special roads followed at significantly lower volumes.</p>
       </div>
     </div>
 
-    <!-- VIZ 4 -->
+    <!-- PIE CHART -->
     <div class="viz-pair">
       <div class="viz-img">
-        <!-- Save as: proj_rs_cause.png -->
-        <img src="../proj_rs_cause.png" alt="Accidents by primary cause" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">🍕</span><span>proj_rs_cause.png</span></div>
+        <img src="../Pie_Chart.png" alt="Accidents by primary contributory cause">
         <div class="img-caption">Accidents by primary contributory cause (excluding "Others")</div>
       </div>
       <div class="viz-text">
-        <div class="vt-label">Chart 4 — Cause</div>
+        <div class="vt-label">Cause</div>
         <h4>Primary Contributory Cause</h4>
-        <p>Improper driving (20.1%) was the largest identifiable non-other cause. Two-Wheeler exceptions formed the largest overall category. Road defects were negligible — arguing against prioritising infrastructure spend over behavioural interventions.</p>
+        <p>Improper driving (20.1%, 27,862 accidents) was the largest identifiable cause. Two-Wheeler exceptions formed the largest overall category. Road/engineering defects were negligible, arguing against prioritising infrastructure spend over behavioural interventions.</p>
       </div>
     </div>
 
-    <!-- VIZ 5 -->
+    <!-- BAR PARALLEL (Road Condition) -->
     <div class="viz-pair">
       <div class="viz-img">
-        <!-- Save as: proj_rs_severity.png -->
-        <img src="../proj_rs_severity.png" alt="Severity by lighting" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">💡</span><span>proj_rs_severity.png</span></div>
+        <img src="../Bar_Parallel.png" alt="Accident severity by road condition">
+        <div class="img-caption">Accident severity by road condition type</div>
+      </div>
+      <div class="viz-text">
+        <div class="vt-label">Road Condition</div>
+        <h4>Severity by Road Condition</h4>
+        <p>Worn surfaces and rut/holes had the highest crash counts among defective conditions, but the majority of crashes overall occurred on defect-free roads — reinforcing that human behaviour is the primary risk factor, not infrastructure.</p>
+      </div>
+    </div>
+
+    <!-- BAR CHART (Lighting) -->
+    <div class="viz-pair">
+      <div class="viz-img">
+        <img src="../bar_chart.png" alt="Accident severity by lighting condition">
         <div class="img-caption">Accident severity by lighting condition</div>
       </div>
       <div class="viz-text">
-        <div class="vt-label">Chart 5 — Severity</div>
+        <div class="vt-label">Severity</div>
         <h4>Severity by Lighting Condition</h4>
-        <p>Daylight had the highest absolute crash volume — consistent with traffic volume. Fatal crashes were distributed across lighting conditions, suggesting lighting alone is not a primary severity driver.</p>
+        <p>Daylight had the highest absolute crash volume — consistent with overall traffic volume. Fatal crashes were distributed across lighting conditions, suggesting lighting alone is not a primary severity driver and that other behavioural factors dominate.</p>
       </div>
     </div>
   </div>
@@ -188,19 +176,17 @@
   <!-- POWER BI DASHBOARD -->
   <div class="section">
     <h2>Power BI Dashboard</h2>
-    <p>Alongside the R visualisations, an interactive Power BI dashboard was built covering the full dataset — filterable by lighting condition, injury severity, traffic control device, road defect, and trafficway type. The dashboard combined KPI cards, a treemap of primary causes, a crash-by-hour bar chart, a monthly trend line, and a trafficway donut — allowing the Traffic Commission audience to drill into specific scenarios.</p>
+    <p>An interactive Power BI dashboard was built alongside the R visualisations, covering the full dataset with filters for lighting condition, injury severity, traffic control device, road defect, and trafficway type. The dashboard allowed the Traffic Commission audience to drill into specific scenarios — for example, fatal crashes at intersections during nighttime without road lights.</p>
 
     <div class="viz-pair" style="border-bottom:none;">
       <div class="viz-img">
-        <!-- Save as: proj_rs_powerbi.png — screenshot of your Power BI dashboard -->
-        <img src="../proj_rs_powerbi.png" alt="Power BI dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="viz-placeholder" style="display:none"><span style="font-size:1.8rem">📊</span><span>proj_rs_powerbi.png</span></div>
-        <div class="img-caption">Power BI dashboard — full view with filters for severity, lighting, road condition, and trafficway type</div>
+        <img src="../Dashboard.png" alt="Power BI dashboard">
+        <div class="img-caption">Power BI dashboard — KPI cards, primary cause treemap, crash-by-hour bar chart, monthly trend line, and trafficway donut</div>
       </div>
       <div class="viz-text">
         <div class="vt-label">Power BI</div>
         <h4>Interactive Dashboard</h4>
-        <p>The dashboard presented four KPI cards (total crashes, total injuries, fatal crashes, avg. vehicles involved), a primary cause treemap, crash volume by hour group, a monthly trend line comparing crashes and injuries, and a trafficway type donut. Cross-filtering across all panels let the audience explore specific conditions — e.g. fatal crashes at intersections during nighttime without road lights.</p>
+        <p>The dashboard presented four KPI cards (124K total crashes, 48K total injuries, 221 fatal crashes, 2.06 avg. vehicles involved), a primary cause treemap, crash volume by hour group, a monthly trend line comparing crashes and injuries, and a trafficway type donut. All panels were cross-filterable, enabling scenario-level exploration of the data.</p>
       </div>
     </div>
   </div>
@@ -212,7 +198,7 @@
       <div class="finding-item"><div class="fi-dot"></div><div><strong>~65% of crashes occur at intersections</strong><p>The dominant location type — the strongest single finding for traffic infrastructure planning.</p></div></div>
       <div class="finding-item"><div class="fi-dot"></div><div><strong>Peak risk: weekday afternoons (3–6pm)</strong><p>Consistent with rush-hour distraction and fatigue — supports targeted enforcement deployment in this window.</p></div></div>
       <div class="finding-item"><div class="fi-dot"></div><div><strong>Human error dominates over road defects</strong><p>Crashes on defect-free roads far outnumber those on defective surfaces — redirecting resources from infrastructure to behavioural interventions is more impactful.</p></div></div>
-      <div class="finding-item"><div class="fi-dot"></div><div><strong>Police presence correlates with fewer crashes</strong><p>Areas with visible enforcement (Police/Flagman as traffic control device) recorded significantly lower crash counts — suggesting strong deterrence effect.</p></div></div>
+      <div class="finding-item"><div class="fi-dot"></div><div><strong>Police presence correlates with fewer crashes</strong><p>Areas with visible enforcement (Police/Flagman as traffic control device) recorded significantly lower crash counts — suggesting a strong deterrence effect.</p></div></div>
     </div>
   </div>
 
