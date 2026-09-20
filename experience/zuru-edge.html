@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZURU Edge — Manvi Gupta</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--hunter:#2D4A2A;--basil:#3A5E35;--sage-deep:#4E7A47;--sage:#6B9E62;--sage-light:#A8C9A0;--sage-pale:#DCE8D8;--sage-mist:#EEF4EB;--cream:#F5F2EC;--warm-white:#FAFAF7;--charcoal:#272820;--muted:#5E6259;--border:#D0D5C8;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--charcoal);font-size:16px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:200;background:var(--hunter);padding:0 6%;display:flex;justify-content:space-between;align-items:center;height:58px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  nav .logo-name{font-family:'DM Serif Display',serif;color:white;font-size:1.05rem;letter-spacing:0.02em;text-decoration:none;}
+  nav ul{list-style:none;display:flex;gap:2rem;}
+  nav ul a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
+  nav ul a:hover{color:white;}
+  .page-hero{background:var(--hunter);padding:64px 6% 72px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:rgba(107,158,98,0.08);}
+  .breadcrumb{font-size:0.78rem;color:rgba(255,255,255,0.45);margin-bottom:1.2rem;position:relative;z-index:1;}
+  .breadcrumb a{color:var(--sage-light);text-decoration:none;}
+  .breadcrumb a:hover{color:white;}
+  .page-hero .tag{display:inline-block;background:rgba(107,158,98,0.2);color:var(--sage-light);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1rem;position:relative;z-index:1;}
+  .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;line-height:1.15;max-width:700px;position:relative;z-index:1;}
+  .page-hero .meta{color:var(--sage-light);font-size:0.88rem;font-weight:300;margin-top:0.8rem;position:relative;z-index:1;}
+  .hero-rule{width:36px;height:2px;background:var(--sage);margin-top:1.4rem;position:relative;z-index:1;}
+  .content-wrap{max-width:860px;margin:0 auto;padding:64px 6%;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--sage-deep);font-size:0.84rem;font-weight:500;text-decoration:none;margin-bottom:2.4rem;}
+  .back-link:hover{color:var(--basil);}
+
+  .role-intro{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:2.4rem;text-align:justify;}
+
+  .task{margin-bottom:56px;}
+  .task-header{display:flex;align-items:baseline;gap:12px;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .task-num{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--sage-deep);}
+  .task-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--charcoal);}
+  .task p{color:var(--muted);font-size:0.92rem;line-height:1.85;margin-bottom:0.8rem;text-align:justify;}
+
+  .vertical-heading{font-family:'DM Serif Display',serif;font-size:0.98rem;color:var(--sage-deep);margin:1.6rem 0 0.8rem;}
+
+  .work-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:0.4rem;}
+  .work-list li{display:flex;gap:14px;align-items:flex-start;background:white;border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+  .wi-icon{width:34px;height:34px;border-radius:8px;background:var(--sage-mist);color:var(--sage-deep);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .wi-text strong{display:block;font-size:0.88rem;color:var(--charcoal);margin-bottom:2px;}
+  .wi-text span{font-size:0.84rem;color:var(--muted);}
+
+  .tools-section{margin-top:8px;padding-top:32px;border-top:1px solid var(--border);}
+  .tools-section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:0.8rem;}
+  .tools-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tool-tag{background:var(--hunter);color:rgba(255,255,255,0.85);font-size:0.74rem;font-weight:500;padding:4px 12px;border-radius:20px;}
+  footer{background:var(--hunter);color:rgba(255,255,255,0.45);text-align:center;padding:28px 6%;font-size:0.78rem;}
+  footer a{color:var(--sage-light);text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo-name" href="../index.html">Manvi Gupta</a>
+  <ul>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#experience">Experience</a> / ZURU Edge</div>
+  <span class="tag">FMCG · Commercial · Retail Analytics</span>
+  <h1>Sales Analyst — Commercial Team<br><em style="font-style:italic;color:var(--sage-light)">ZURU Edge</em></h1>
+  <p class="meta">Sydney, NSW &nbsp;·&nbsp; June 2026 – September 2026</p>
+  <div class="hero-rule"></div>
+</div>
+
+<div class="content-wrap">
+  <a class="back-link" href="../index.html#experience">← Back to Experience</a>
+  <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1.2rem;">* Due to confidentiality and no longer having access to work files, specific figures and screenshots aren't included here.</p>
+
+  <p class="role-intro">As a Sales Analyst on ZURU Edge's Commercial team, my role sat at the intersection of understanding sales performance data and category strategy. Day to day, that meant pulling live sales and promotional data from retailer and market data portals, turning it into performance reads and recommendations for the brand and category teams, and flagging risks or opportunities that we weren't capturing. My core focus was ZURU's Baby and Beauty portfolios, though I also picked up projects in Confectionery, on Gumi Yums, and in the newer Pet Treats range, working with growing brands like Bonkers and Mr Purrs.</p>
+
+  <!-- TASK 1 -->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">01</span>
+      <span class="task-title">Primary Contact for Sales &amp; Category Data</span>
+    </div>
+    <p>Beyond my core portfolio work, I was often the first person people across the business came to when they needed data quickly, whether that was a retailer range review, a category performance review for a specific retailer, or a root cause analysis that meant digging into SKU level, regional, or store level data to explain why sales had moved. The reasons behind a shift could come from almost anywhere, promotional activity, category performance, competitive intensity, seasonality, a new product launch, stock availability, or changes happening in store, and part of the job was working out which of those was actually driving the number in front of me.</p>
+    <p>For most of these requests, I would pull from our internal AI system or go straight to the live data in Unify and Quantium, then compile and deliver whatever was needed in the format the person actually wanted, whether that was a quick summary, a table, or a full breakdown. Being the go-to person for this meant staying comfortable moving quickly across categories and data sources, and being able to trust my own read of the numbers under time pressure.</p>
+  </div>
+
+  <!-- TASK 2 -->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">02</span>
+      <span class="task-title">Retail &amp; SKU Performance Across Baby and Beauty</span>
+    </div>
+    <p>Across both portfolios, this came down to working at SKU level within Unify and Quantium, then translating that into what it meant for the brand's next promotional or listing decision. Here is what that looked like brand by brand.</p>
+
+    <div class="vertical-heading">Baby</div>
+    <p>Some of this came down to promotional space, since how much shelf or catalogue space a brand was given during a promotion could shift sales on its own, independent of price.</p>
+    <ul class="work-list">
+      <li>
+        <div class="wi-icon">🍼</div>
+        <div class="wi-text"><strong>Millie Moon</strong><span>Launched a new SKU in Big W within the last three months. Mapped its early performance against the same SKU's established run in Woolworths, where it had launched around a year earlier, to judge whether the new listing was tracking to where it should be.</span></div>
+      </li>
+      <li>
+        <div class="wi-icon">🗓</div>
+        <div class="wi-text"><strong>Rascals</strong><span>A six year old brand with a long promotional history. Analysed its promo structure, event timing and phasing, using that history as the benchmark for whether current promotions were landing as well as they used to.</span></div>
+      </li>
+    </ul>
+
+    <div class="vertical-heading">Beauty</div>
+    <ul class="work-list">
+      <li>
+        <div class="wi-icon">🛒</div>
+        <div class="wi-text"><strong>Daisie</strong><span>Live in Kmart and Big W, and at fifty percent range in Woolworths ahead of an upcoming Coles launch. Since the SKU range varied by retailer, a lot of the analysis came down to deciding how to fairly factor that difference into the comparison rather than reading the raw numbers at face value. Daisie also did not sit neatly inside one category, so I had to make a judgement call on how to map its performance against a limited, hand picked set of competitors rather than a standard category benchmark, then used that to see how it stacked up within each store.</span></div>
+      </li>
+      <li>
+        <div class="wi-icon">💇</div>
+        <div class="wi-text"><strong>Monday Haircare &amp; Being</strong><span>Both under a year old in Big W, where I benchmarked them against each other, against competitors in the hair care and treatment segment, and against forecast. I also tracked their performance in their other listings, Monday in Coles and Being in Woolworths, to build a clear read on how each was actually tracking across retailers.</span></div>
+      </li>
+      <li>
+        <div class="wi-icon">🆕</div>
+        <div class="wi-text"><strong>True</strong><span>A new brand launching into Kmart. Tracked its initial distribution and stock numbers as it rolled out across stores, and watched sales through the first week of launch to get an early read on how a brand-new listing was performing.</span></div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- TASK 3 -->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">03</span>
+      <span class="task-title">Promo Phasing &amp; Competitive Tracking</span>
+    </div>
+    <p>Unify and Quantium were the two portals I worked in day to day, pulling live sales data and tracking week-on-week shifts in sales patterns. I used the same data to map competitor promotional activity against ZURU's own, running promo phasing analysis to compare the current year's promotional calendar against the same period the year before and see which timing and structure choices had actually worked better.</p>
+    <p>Alongside that, I compared planned promotions against forecasted values, looking at how the resulting sales and units stacked up against what had been forecast, to get a clearer read on which promotional strategies were genuinely driving results rather than just generating activity.</p>
+  </div>
+
+  <!-- TASK 4 -->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">04</span>
+      <span class="task-title">Working With AI in a Live Data Environment</span>
+    </div>
+    <p>ZURU's internal reporting system had AI built into it, drawing on data from Unify and Quantium. Getting real value out of it meant learning how to navigate that internal AI source properly, how to prompt and guide it so the analysis it produced actually matched what the live data showed, rather than assumptions it made on its own. That meant regularly checking its output against the source data, and over time getting better at setting it up correctly from the start so I was not correcting it after the fact. It gave me a level of comfort with AI tools that I had not built before this role.</p>
+    <p>Alongside this, I used AI to streamline the process of pulling together weekly and bi-weekly NPD, new product development, performance reports across different reporting scenarios, which taught me how to make that kind of repetitive reporting work faster and more efficient than I had managed before.</p>
+  </div>
+
+  <!-- TASK 5 -->
+  <div class="task">
+    <div class="task-header">
+      <span class="task-num">05</span>
+      <span class="task-title">Case Study: Catching a Pricing Error Before It Compounded</span>
+    </div>
+    <p>During a major haircare promotional event in Coles, unit sales on a few SKUs ticked up and the internal system read it as a win. Digging into it, I found the product was listed at the wrong promotional price in store, something the system was never built to catch. The mispricing had pushed units up without a matching revenue gain, and over the following weeks it fed into a stock availability issue that dragged sales down meaningfully, a knock-on effect that would not have surfaced without going back to check in-store pricing against the numbers.</p>
+    <p>In that same promotional window, I also caught a separate discrepancy in a mini shampoo and conditioner range that had been placed on the wrong promotion. Rather than just flagging it, I used the mismatch to test what an alternative promo structure might do for the range, and the analysis pointed to an approach that could outperform the existing one, which I proposed for the next promo cycle.</p>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="tools-section">
+    <h3>Tools &amp; Skills</h3>
+    <div class="tools-row">
+      <span class="tool-tag">Excel</span>
+      <span class="tool-tag">Power BI</span>
+      <span class="tool-tag">Unify</span>
+      <span class="tool-tag">Quantium</span>
+      <span class="tool-tag">AI-Assisted Analytics</span>
+      <span class="tool-tag">Promo Phasing Analysis</span>
+      <span class="tool-tag">Competitive Benchmarking</span>
+      <span class="tool-tag">Pricing &amp; Anomaly Analysis</span>
+      <span class="tool-tag">Cross-Retailer Performance Tracking</span>
+      <span class="tool-tag">NPD Tracking</span>
+    </div>
+  </div>
+
+  <br>
+  <a class="back-link" href="../index.html#experience">← Back to all experience</a>
+</div>
+
+<footer><p>© 2025 Manvi Gupta &nbsp;·&nbsp; <a href="mailto:manvig376@gmail.com">manvig376@gmail.com</a></p></footer>
+</body>
+</html>
