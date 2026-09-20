@@ -157,6 +157,28 @@
     gap: 22px;
   }
 
+  /* Experience row: all cards in one line, horizontal scroll if it doesn't fit */
+  .cards-grid.experience-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cards-grid.experience-scroll::-webkit-scrollbar { height: 8px; }
+  .cards-grid.experience-scroll::-webkit-scrollbar-track { background: transparent; }
+  .cards-grid.experience-scroll::-webkit-scrollbar-thumb { background: var(--sage-pale); border-radius: 8px; }
+  .cards-grid.experience-scroll .exp-card {
+    flex: 1 0 330px;
+    max-width: 430px;
+    scroll-snap-align: start;
+  }
+  @media (max-width: 700px) {
+    .cards-grid.experience-scroll .exp-card { flex-basis: 82vw; max-width: 82vw; }
+    .cards-grid.experience-scroll .exp-tag { white-space: normal; }
+  }
+
   .exp-card {
     background: white; border: 1px solid var(--border);
     border-radius: 14px; overflow: hidden;
@@ -194,6 +216,7 @@
     display: inline-block; background: var(--sage-mist); color: var(--basil);
     font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px;
     letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.75rem;
+    white-space: nowrap;
   }
   .exp-inner h3 {
     font-family: 'DM Serif Display', serif;
@@ -201,7 +224,7 @@
   }
   .exp-inner .company { font-size: 0.83rem; color: var(--sage-deep); font-weight: 500; margin-bottom: 0.15rem; }
   .exp-inner .period  { font-size: 0.76rem; color: var(--muted); margin-bottom: 0.8rem; }
-  .exp-inner .summary { font-size: 0.855rem; color: var(--muted); line-height: 1.75; flex: 1; }
+  .exp-inner .summary { font-size: 0.855rem; color: var(--muted); line-height: 1.75; flex: 1; text-align: justify; }
   .exp-cta {
     margin-top: 1rem; font-size: 0.78rem; font-weight: 600;
     color: var(--sage-deep); display: inline-flex; align-items: center; gap: 4px;
@@ -367,7 +390,30 @@
   <div class="max-w">
     <div class="section-label">Where I've worked</div>
     <h2 class="section-title">Experience</h2>
-    <div class="cards-grid">
+    <div class="cards-grid experience-scroll">
+
+      <!--
+        ZURU EDGE CARD IMAGE
+        ---------------------
+        No screenshots available for this role (worked on a company laptop
+        with no ongoing access). Green gradient placeholder shows by default.
+      -->
+      <a class="exp-card" href="experience/zuru-edge.html">
+        <div class="exp-img-panel fmcg">
+          <img src="exp_zuru.png" alt="ZURU Edge retail analysis"
+               onerror="this.style.display='none'">
+          <div class="placeholder-icon">📈</div>
+          <span style="color:rgba(255,255,255,0.6);font-size:0.75rem">Sales Performance Analysis</span>
+        </div>
+        <div class="exp-inner">
+          <span class="exp-tag">FMCG · Commercial · Retail Analytics</span>
+          <h3>Sales Analyst — Commercial Team</h3>
+          <div class="company">ZURU Edge · Sydney</div>
+          <div class="period">June 2026 – September 2026</div>
+          <p class="summary">Analysed SKU and retailer-level performance across ZURU's Baby and Beauty portfolios and beyond, spanning 8+ brands and retailers including Coles, Woolworths, Big W and Kmart, using Unify and Quantium to track live sales and competitor promotions. On a weekly basis, I was the first point of contact across the business for sales updates and any data or analysis someone needed, diving into the numbers and shaping the answer into whatever format the request called for.</p>
+          <span class="exp-cta">View details →</span>
+        </div>
+      </a>
 
       <!--
         HALDIRAM CARD IMAGE
@@ -391,7 +437,24 @@
           <div class="company">Haldiram Snacks Food Pvt Ltd · India</div>
           <div class="period">December 2024 – January 2025</div>
           <p class="summary">Built quarterly performance reports in Power BI, conducted competitive price benchmarking across SKUs, and led feasibility analysis for a new product launch targeting an untapped market segment.</p>
-          <span class="exp-cta">View case study →</span>
+          <span class="exp-cta">View details →</span>
+        </div>
+      </a>
+
+      <a class="exp-card" href="experience/saba.html">
+        <div class="exp-img-panel retail">
+          <img src="exp_mathers.png" alt="Retail operations"
+               onerror="this.style.display='none'">
+          <div class="placeholder-icon">🗂</div>
+          <span style="color:rgba(255,255,255,0.6);font-size:0.75rem">Store KPI Tracking</span>
+        </div>
+        <div class="exp-inner">
+          <span class="exp-tag">Retail · Operations · KPIs</span>
+          <h3>Retail Sales Associate</h3>
+          <div class="company">Mathers &amp; SABA · Sydney</div>
+          <div class="period">February 2025 – Present</div>
+          <p class="summary">Stepped up to lead team operations during a management transition, overseeing scheduling and decision-making. Monitor daily KPIs — conversion rates, average transaction value, daily sales — using Excel dashboards.</p>
+          <span class="exp-cta">View details →</span>
         </div>
       </a>
 
@@ -416,24 +479,6 @@
           <div class="company">Eduauraa Tech Pvt Ltd · India</div>
           <div class="period">June 2023 – December 2023</div>
           <p class="summary">Analysed lead performance across all marketing channels, built a database of 3,000+ schools across 29 states, and contributed to a GTM strategy that secured the company's first three clients at 20% conversion.</p>
-          <span class="exp-cta">View case study →</span>
-        </div>
-      </a>
-
-    
-      <a class="exp-card" href="experience/saba.html">
-        <div class="exp-img-panel retail">
-          <img src="exp_mathers.png" alt="Retail operations"
-               onerror="this.style.display='none'">
-          <div class="placeholder-icon">🗂</div>
-          <span style="color:rgba(255,255,255,0.6);font-size:0.75rem">Store KPI Tracking</span>
-        </div>
-        <div class="exp-inner">
-          <span class="exp-tag">Retail · Operations · KPIs</span>
-          <h3>Retail Sales Associate</h3>
-          <div class="company">Mathers &amp; SABA · Sydney</div>
-          <div class="period">February 2025 – Present</div>
-          <p class="summary">Stepped up to lead team operations during a management transition, overseeing scheduling and decision-making. Monitor daily KPIs — conversion rates, average transaction value, daily sales — using Excel dashboards.</p>
           <span class="exp-cta">View details →</span>
         </div>
       </a>
